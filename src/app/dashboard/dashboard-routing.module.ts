@@ -5,10 +5,10 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 
 const dashRoutes: Routes = [
   {
-    path: '', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         children: [
           { path: 'add', component: AddCategoryComponent }
         ]

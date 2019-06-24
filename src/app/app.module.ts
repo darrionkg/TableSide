@@ -21,7 +21,6 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
   declarations: [
     AppComponent,
     ClientComponent,
-
     DashboardComponent,
     PartyDetailComponent,
     OrderDetailComponent,
