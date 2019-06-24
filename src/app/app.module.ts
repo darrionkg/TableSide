@@ -7,14 +7,9 @@ import { ClientComponent } from './client/client.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-<<<<<<< HEAD
 
 import { firebaseConfig } from 'api_keys';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-=======
-import { firebaseConfig } from './api_keys';
-import { DashboardComponent } from './dashboard/dashboard.component';
->>>>>>> ca337aa66b9d4e986d99f19033ea505397275774
 import { PartyDetailComponent } from './party-detail/party-detail.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MenuComponent } from './menu/menu.component';
