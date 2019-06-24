@@ -9,6 +9,7 @@ import { DataService } from 'src/services/data.service';
 export class AppComponent {
   title = 'TableSide';
   constructor (private dataservice: DataService) { 
+
     dataservice.getMenuCatagories().subscribe( ref => {
       console.log(ref['Names']);
     });
@@ -20,4 +21,4 @@ export class AppComponent {
       console.log(ref);
     });
   }
-}
+} 
