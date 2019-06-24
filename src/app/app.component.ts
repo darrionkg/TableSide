@@ -9,5 +9,6 @@ import { DataService } from 'src/services/data.service';
 export class AppComponent {
   title = 'TableSide';
   constructor (private dataservice: DataService) { 
+    // dataservice.addParty(5, 3);
   }  
 }

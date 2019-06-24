@@ -18,13 +18,10 @@ export class DataService {
 
   addParty()
   addParty(table: number)
-  addParty(table: number, size: number)
-  addParty(table?: number, size?: number) {
-    if (!size) { size = 1 }
+  addParty(table?: number) {
     if (!table) { table = 0 }
     let data = {
-      table: table,
-      size: size
+      table: table
     }
     return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').add(data);
   }
