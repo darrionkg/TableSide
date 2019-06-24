@@ -1,6 +1,8 @@
 <div class="box-container menu-container">
-  <div class="box menu-item">
-    <h3>Item Name</h3>
-    <p class="menu-price">$</p>
-  </div>
+  <a *ngFor="let item of allItems" (click)="addItem(item)">
+    <div class="box menu-item" >
+      <h3>{{item.name}}</h3>
+      <p class="menu-price">${{item.price}}</p>
+    </div>
+  </a>
 </div>

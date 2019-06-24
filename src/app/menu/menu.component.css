@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+a:hover {
+  background-color: gray;
+}
+
 .box {
   display: flex;
   flex-direction: row;
