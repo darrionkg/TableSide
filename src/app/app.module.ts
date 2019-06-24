@@ -7,6 +7,7 @@ import { ClientComponent } from './client/client.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { firebaseConfig } from 'api_keys';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { PartyDetailComponent } from './party-detail/party-detail.component';

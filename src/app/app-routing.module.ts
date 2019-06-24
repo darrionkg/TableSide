@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'parties/:partyId', component: PartyDetailComponent },
   { path: 'parties/:partyId/orders/:orderId', component: OrderDetailComponent},
   { path: 'parties/:partyId/orders/:orderId/menu', component: MenuComponent },
-  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule) }
+  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule) },
+  { path: 'menu', component: MenuComponent },
+
 
 ];
 

@@ -1,0 +1,19 @@
+.box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+a:hover {
+  background-color: gray;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.menu-price {
+  float: right;
+  margin-right: 20px;
+}

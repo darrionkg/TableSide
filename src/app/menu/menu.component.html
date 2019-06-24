@@ -1,3 +1,8 @@
-<p>
-  menu works!
-</p>
+<div class="box-container menu-container">
+  <a *ngFor="let item of allItems" (click)="addItem(item)">
+    <div class="box menu-item" >
+      <h3>{{item.name}}</h3>
+      <p class="menu-price">${{item.price}}</p>
+    </div>
+  </a>
+</div>
