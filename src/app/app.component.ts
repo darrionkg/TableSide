@@ -9,6 +9,16 @@ import { DataService } from 'src/services/data.service';
 export class AppComponent {
   title = 'TableSide';
   constructor (private dataservice: DataService) { 
-    // dataservice.addParty(5, 3);
-  }  
-}
+
+    dataservice.getMenuCatagories().subscribe( ref => {
+      console.log(ref['Names']);
+    });
+    dataservice.getMenuItems().subscribe( ref => {
+      console.log(ref);      
+    });
+
+    dataservice.getMenuItems('Entree').subscribe( ref => {
+      console.log(ref);
+    });
+  }
+} 

@@ -1,2 +1,22 @@
-<p>Test to make sure page works</p>
-<p *ngFor="let party of parties">{{party.size}}</p>
+
+
+
+<div class = "box-container">
+  <div class="topnav">
+    <a href="#home" class="active">Logo</a>
+    <!-- Navigation links (hidden by default) -->
+    <div id="myLinks">
+      <a href="#fullMenu">Full Menu</a>
+      <a href="#parties/:partyId">See List of Parties</a>
+      <a href="#parties/:partyId/orders/:orderId/menu">Create a New Party</a>
+    </div>
+    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+
+  </div>
+  <div class= "box-newParty">New Party <img src="assets/img/plus.png" (click)="addParty()" alt="plus operator" height="42" width="42"></div>
+  <div class="box-party" *ngFor="let party of parties"><p>{{party.size}}</p><p>{{party.table}}</p></div>
+</div> 
+
