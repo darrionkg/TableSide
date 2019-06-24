@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'parties/:partyId', component: PartyDetailComponent },
   { path: 'parties/:partyId/orders/:orderId', component: OrderDetailComponent},
   { path: 'parties/:partyId/orders/:orderId/menu', component: MenuComponent },
+  { path: 'menu', component: MenuComponent },
 ];
 
 @NgModule({
