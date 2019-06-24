@@ -32,8 +32,5 @@ export class ClientComponent implements OnInit {
       x.style.display = "block";
     }
   }
-  addParty(){
-    console.log("in addParty Function");
-  }
 }
 
