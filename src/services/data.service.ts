@@ -31,21 +31,18 @@ export class DataService {
 
 
   getMenuCatagories() {
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').doc('Categories').valueChanges();
+    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').valueChanges();
   }
-  getMenuItems()
-  getMenuItems(categories: string)
-  getMenuItems(categories?: string) {
-    if (!categories) {categories = "All"}
-    if (categories === "All") {
-      let refs = this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu')      
-      //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu');      
-
-    } else {
+  getMenuItems(): Observable<any>
+  getMenuItems(categories: string): Observable<any>
+  getMenuItems(categories?: string) : Observable<any> {    
+    if (!categories || categories === "All") {
+      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
       
+    } else {
+      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
+      .collection('Menu', ref => ref.where('category', '==', categories)).valueChanges()      
     }
-
-
   }
 
 
