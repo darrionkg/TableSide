@@ -11,6 +11,8 @@ export class AppComponent {
   constructor (private dataservice: DataService) { }
 
   addParty() {
-    this.dataservice.addParty();
+    this.dataservice.addParty().then( ref => {
+      console.log(ref.id);
+    });
   }
 }

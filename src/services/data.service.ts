@@ -16,12 +16,11 @@ export class DataService {
     DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
   }
 
-
   addParty() {
     let data = {
       table: 3
     }
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc("PArty2").set(data);
+    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').add(data);
   }
 
 
