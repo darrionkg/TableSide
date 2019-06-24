@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ClientComponent } from './client/client.component';
 import { PartyDetailComponent } from './party-detail/party-detail.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MenuComponent } from './menu/menu.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'parties', component: ClientComponent},
@@ -11,6 +13,9 @@ const routes: Routes = [
   { path: 'parties/:partyId/orders/:orderId', component: OrderDetailComponent},
   { path: 'parties/:partyId/orders/:orderId/menu', component: MenuComponent },
   { path: 'menu', component: MenuComponent },
+  { path: 'dashboard', component: DashboardComponent }
+
+
 ];
 
 @NgModule({
