@@ -39,5 +39,4 @@ export class ClientComponent implements OnInit {
       x.className = 'topnav';
     }
   }
-  
 }
