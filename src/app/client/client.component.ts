@@ -25,11 +25,11 @@ export class ClientComponent implements OnInit {
 
   }
   myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
+    var x: HTMLElement = document.getElementById('myTopnav');
+    if (x.className === 'topnav') {
+      x.className += 'responsive';
     } else {
-      x.style.display = "block";
+      x.className = 'topnav';
     }
   }
 }
