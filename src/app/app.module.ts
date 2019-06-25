@@ -19,11 +19,15 @@ import { MenuComponent } from './menu/menu.component';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { CatFilter } from './catFilter.pipe';
+import { MenuEditComponent } from './dashboard/menu-edit/menu-edit.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     OrderDetailComponent,
     MenuComponent,
     AddCategoryComponent,
-    CatFilter    
+    CatFilter,
+    MenuEditComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     DragDropModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [CatFilter],
   bootstrap: [AppComponent]

@@ -1,32 +1,34 @@
 
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
 
 
-<div class = "box-container">
-  <div class="topnav">
-    <a href="#home" class="active">Logo</a>
-    <!-- Navigation links (hidden by default) -->
-    <div id="myLinks">
-      <a href="#fullMenu">Full Menu</a>
-      <a href="#parties/:partyId">See List of Parties</a>
-      <a href="#parties/:partyId/orders/:orderId/menu">Create a New Party</a>
-    </div>
-    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-
-  </div>
-  <div class= "box-newParty">
-    <p>New Party</p>
-    <img src="assets/img/plus.png" (click)="addParty()" alt="plus operator" height="42" width="42">
-  </div>
-
-  <a class="box-link" *ngFor="let party of parties" (click)="goToPartyPage(party)">
-    <div class="box-party">
-      <p>{{party.size}}</p>
-      <p>{{party.table}}</p>
-    </div>
+  <div class="topnav" id="myTopnav">
+  <a href="#FullMenu" class="active styly">Home</a>
+  <br>
+  <a href="#partyList" class="styly">Party</a>
+  <br>
+  <a href="#Menu" class="styly">Menu</a>
+  <br>
+  <a href="#About" class="styly">About TableSide</a>
+  <a href="javascript:void(0);" class="icon" (click)="myFunction()">
+    <i class="fa fa-bars"></i>
   </a>
-
 </div>
+
+<div class="box-container">
+  <div class= "box-newParty ">New Party <img src="assets/img/plus.png " (click)="addParty() " alt="plus operator
+    " height="42 " width="42 ">
+  </div>
+  <div class="box-party " *ngFor="let party of parties "><p>{{party.size}}</p><p>{{party.table}}</p>
+  </div>
+  </div>
+
+</body>
+
+  </html>
 

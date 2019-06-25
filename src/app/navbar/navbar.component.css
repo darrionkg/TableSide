@@ -1,0 +1,8 @@
+mat-icon {
+    font-size: 3rem;
+}
+
+::ng-deep .mat-menu-panel {
+    padding: 0 30px!important;
+    width: 100%!important;
+  }

@@ -30,12 +30,13 @@ export class ClientComponent implements OnInit {
 
   ngOnInit() {
   }
-  // myFunction() {
-  //   var x = document.getElementById("myLinks");
-  //   if (x.style.display === "block") {
-  //     x.style.display = "none";
-  //   } else {
-  //     x.style.display = "block";
-  //   }
-  // }
+
+  myFunction() {
+    var x: HTMLElement = document.getElementById('myTopnav');
+    if (x.className === 'topnav') {
+      x.className += 'responsive';
+    } else {
+      x.className = 'topnav';
+    }
+  }
 }
