@@ -11,14 +11,14 @@ export class AppComponent {
   constructor (private dataservice: DataService) { 
 
     dataservice.getMenuCatagories().subscribe( ref => {
-      console.log(ref['Names']);
+      //console.log(ref['Names']);
     });
     dataservice.getMenuItems().subscribe( ref => {
-      console.log(ref);      
+      //console.log(ref);      
     });
 
     dataservice.getMenuItems('Entree').subscribe( ref => {
-      console.log(ref);
+      //console.log(ref);
     });
   }
 } 

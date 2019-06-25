@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { MenuEditComponent } from './menu-edit/menu-edit.component';
 
 const dashRoutes: Routes = [
   {
@@ -10,7 +11,8 @@ const dashRoutes: Routes = [
       {
         path: '',
         children: [
-          { path: 'add', component: AddCategoryComponent }
+          { path: 'add', component: AddCategoryComponent },
+          { path: 'menuEdit/:category', component: MenuEditComponent}
         ]
       }
     ]

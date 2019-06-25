@@ -10,15 +10,32 @@ import { all } from 'q';
 })
 export class MenuComponent implements OnInit {
   allItems: [] = [];
-  constructor(private db: DataService) { 
+  menuCategories: any;
+  categoryArray;
+  selectedCategory = 'drink';
+
+  constructor(private db: DataService) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
+    this.menuCategories = this.db.getMenuCatagories();
+    this.menuCategories.subscribe(item => this.categoryArray = item.Names);
   }
 
   // addItem will take menu item information, and send it to the service with an order # via route
   addItem(item) {
-    this.db.addOrderItem("testOrder", item);
+    this.db.addOrderItem('testOrder', item);
+    console.log(item);
   }
 
+  selectCategory(cat) {
+    this.selectedCategory = cat.toLowerCase();
+    console.log(cat);
+  }
+
+  isActiveCat(cat) {
+    if (cat.toLowerCase() === this.selectedCategory) {
+      return 'activeCat';
+    }
+  }
 
   ngOnInit() {
   }
