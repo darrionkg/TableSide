@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { CatFilter } from './catFilter.pipe';
+import { MenuEditComponent } from './dashboard/menu-edit/menu-edit.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CatFilter } from './catFilter.pipe';
     OrderDetailComponent,
     MenuComponent,
     AddCategoryComponent,
-    CatFilter
+    CatFilter,
+    MenuEditComponent
   ],
   imports: [
     BrowserModule,

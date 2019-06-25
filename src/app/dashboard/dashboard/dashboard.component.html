@@ -16,10 +16,10 @@
             data-feather="chevrons-left"></i></a>
       </li>
       <li class="space-top active">
-        <a href="#" aria-label="Inbox"><i data-feather="inbox"></i><span aria-hidden="true">Menu</span>
+        <a aria-label="Inbox"><i data-feather="inbox"></i><span aria-hidden="true">Menu</span>
         </a>
         <ul>
-          <li *ngFor="let cat of categories.Names"><a href="#">{{cat}}</a></li>
+          <li *ngFor="let cat of categories.Names"><a routerLink="menuEdit/{{cat}}">{{cat}}</a></li>
         </ul>
       </li>
       <li>
