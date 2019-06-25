@@ -30,6 +30,6 @@ export class PartyDetailComponent implements OnInit {
   }
 
   getSeatNum() {
-    this.dataService.getParty(this.partyId).subscribe(party => this.seats = party); 
+    this.dataService.getParty(this.partyId).subscribe(party => this.seats = party);
   }
 }
