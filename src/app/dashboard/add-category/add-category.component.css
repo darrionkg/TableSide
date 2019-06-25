@@ -1,3 +1,14 @@
-* {
+.add-category {
+    display: block;
+    margin-left: 20%;
+    margin-right: 20%;
     text-align: center;
+}
+
+h4 button {
+    margin-left: 10px;    
+}
+
+#addCategory {
+    margin-top: 5px;
 }

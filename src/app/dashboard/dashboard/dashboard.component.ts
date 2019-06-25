@@ -8,6 +8,7 @@ import { DataService } from 'src/services/data.service';
 })
 export class DashboardComponent implements OnInit {
   categories: {} = {};
+  counts = 0;
   constructor(database: DataService) { 
     database.getMenuCatagories().subscribe(ref => {
       this.categories = ref;      
@@ -19,13 +20,6 @@ export class DashboardComponent implements OnInit {
   // let sidebar = document.querySelector('.sidebar');
   // let sidebarToggle = document.querySelector('.sidebar-toggle');
   // let toggleSidebar = 
-  touch = false;
-  onSwipeLeft(event) {
-    this.touch = true;    
-  }
-  onSwipeRight(event) {
-    this.touch = false;
-  }
 
 }
 

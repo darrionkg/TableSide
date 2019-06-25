@@ -1,3 +1,10 @@
-<p>
-  add-category works!
-</p>
+<div class="add-category">
+
+  <div *ngFor="let cat of categories.Names">
+    <h4>{{cat}}<button (click)="catDelete(cat)">Delete</button></h4>
+  </div>
+  
+  <input [(ngModel)]="catName" type="text" placeholder="Category Name">
+  <br>
+  <button id="addCategory" (click)="addCategory(catName)">Add Category</button>
+</div>
