@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../services/data.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-order-detail',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-detail.component.css']
 })
 export class OrderDetailComponent implements OnInit {
-
-  constructor() { }
+  allItems: Observable<any>;
+  constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let orderId = this.route.snapshot.paramMap.get('orderId');
+    this.allItems = this.dataService.getOrderItems(orderId);
   }
 
 }

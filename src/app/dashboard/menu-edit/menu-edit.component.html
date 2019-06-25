@@ -1,1 +1,18 @@
-let item or menuItems | catFilter: selectedCategory
+<h2>{{selectedCategory}}</h2>
+
+<div *ngIf="menuItems.length > 0">
+    <div *ngFor="let item of menuItems | catFilter:selectedCategory">
+        <h4>{{item.name}}</h4>
+        <h4>{{item.ingredients}}</h4>
+        <h4>{{item.price}}</h4>       
+    </div>
+</div>
+
+<div>
+    <form>
+        <input type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}" placeholder="ingredients seperated by a ','" #ref>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name" #refer>
+        <input type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price" #reference>
+        <button (click)="addToMenu(ingredients, name, price)" (click)="reference.value=''" (click)="refer.value=''" (click)="ref.value=''">Add to Menu</button>
+    </form>
+</div>
