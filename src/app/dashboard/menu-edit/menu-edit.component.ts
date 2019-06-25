@@ -23,4 +23,9 @@ export class MenuEditComponent implements DoCheck {
   ngDoCheck() {
     this.selectedCategory = this.route.snapshot.paramMap.get('category').toLowerCase();
   }
+
+  addToMenu(category, ingredientString, name, price) {
+    this.db.addToMenu(category, ingredientString, name, price);
+    }
 }
+

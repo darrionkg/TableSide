@@ -2,6 +2,18 @@
 
 <div *ngIf="menuItems.length > 0">
     <div *ngFor="let item of menuItems | catFilter:selectedCategory">
-        <h4>{{item.name}}</h4>       
+        <h4>{{item.name}}</h4>
+        <h4>{{item.ingredients}}</h4>
+        <h4>{{item.price}}</h4>       
     </div>
+</div>
+
+<div>
+    <form>
+        <input type="text" [(ngModel)]="catName" [ngModelOptions]="{standalone: true}"  placeholder="category">
+        <input type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}" placeholder="ingredients seperated by a ','">
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name">
+        <input type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price">
+        <button (click)="addToMenu(catName, ingredients, name, price)">Add to Menu</button>
+    </form>
 </div>
