@@ -1,13 +1,23 @@
 .box-container{
     display: row;
-    background-color: lightgreen
+    /* background-color: lightgreen; */
 }
 
-.box-container > div{
-    background-color: peachpuff;
+.box-container a {
+    /* background-color: peachpuff;
     margin: 10px;
     padding: 20px;
-    font-size: 30px;
+    font-size: 30px; */
+    width: 100%;
+    border-bottom: 1px solid black;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box-container a div {
+  display: flex;
+  flex-direction: row;
 }
 
 .topnav {
@@ -15,12 +25,12 @@
     background-color: white;
     position: relative;
   }
-  
+
   /* Hide the links inside the navigation menu (except for logo/home) */
   .topnav #myLinks {
     display: none;
   }
-  
+
   /* Style navigation menu links */
   .topnav a {
     color: white;
@@ -29,7 +39,7 @@
     font-size: 17px;
     display: block;
   }
-  
+
   /* Style the hamburger menu */
   .topnav a.icon {
     background: black;
@@ -38,13 +48,13 @@
     right: 0;
     top: 0;
   }
-  
+
   /* Add a grey background color on mouse-over */
   .topnav a:hover {
     background-color: #ddd;
     color: black;
   }
-  
+
   /* Style the active link (or home/logo) */
   .active {
     background-color: #4CAF50;
@@ -53,6 +63,10 @@
 
   .topnav .icon {
     display: none;
+  }
+
+  .box-link:hover {
+    background-color: gray;
   }
 
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */

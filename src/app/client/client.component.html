@@ -16,7 +16,17 @@
     </a>
 
   </div>
-  <div class= "box-newParty">New Party <img src="assets/img/plus.png" (click)="addParty()" alt="plus operator" height="42" width="42"></div>
-  <div class="box-party" *ngFor="let party of parties"><p>{{party.size}}</p><p>{{party.table}}</p></div>
-</div> 
+  <div class= "box-newParty">
+    <p>New Party</p>
+    <img src="assets/img/plus.png" (click)="addParty()" alt="plus operator" height="42" width="42">
+  </div>
+
+  <a class="box-link" *ngFor="let party of parties" (click)="goToPartyPage(party)">
+    <div class="box-party">
+      <p>{{party.size}}</p>
+      <p>{{party.table}}</p>
+    </div>
+  </a>
+
+</div>
 
