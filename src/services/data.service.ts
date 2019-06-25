@@ -14,10 +14,15 @@ export class DataService {
   //Parties
   addParty()
   addParty(table: number)
-  addParty(table?: number) {
+  addParty(table: number, seats: number)
+  addParty(table?: number, seats?: number) {
+    if(seats === null) {
+      seats = 0;
+    }
     if (!table) { table = 0 }
     let data = {
-      table: table
+      table: table,
+      seats: seats
     }
     return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').add(data);
   }
@@ -33,6 +38,20 @@ export class DataService {
         })
       }));
 
+  }
+
+  addSeat(partyId) {
+    let data;
+    let sub = this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc(partyId).valueChanges().subscribe(ref => 
+      {data = ref;
+      data.seats += 1;
+      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc(partyId).update(data);
+      sub.unsubscribe();
+    });
+  }
+
+  getParty(partyId) {
+    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc(partyId).valueChanges();
   }
 
   getMenuCatagories() {
