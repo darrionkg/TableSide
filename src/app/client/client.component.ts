@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../services/data.service';
 import { Router } from '@angular/router';
-import { Observable, Map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -15,7 +15,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ClientComponent implements OnInit {
 
   parties: any[] = [];
-  constructor(private dataService: DataService, private db: AngularFirestore) {
+  constructor(private dataService: DataService, private db: AngularFirestore, private router: Router) {
 
     dataService.getParties().subscribe( ref => this.parties = ref);
    }
@@ -24,8 +24,8 @@ export class ClientComponent implements OnInit {
      this.dataService.addParty().then(ref => console.log(ref.id));
    }
 
-   logClick(party) {
-     console.log(party);
+   goToPartyPage(party) {
+     this.router.navigate(['parties', party.id]);
    }
 
   ngOnInit() {

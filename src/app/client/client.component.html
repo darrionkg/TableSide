@@ -21,7 +21,7 @@
     <img src="assets/img/plus.png" (click)="addParty()" alt="plus operator" height="42" width="42">
   </div>
 
-  <a class="box-link" *ngFor="let party of parties" (click)="logClick(party)">
+  <a class="box-link" *ngFor="let party of parties" (click)="goToPartyPage(party)">
     <div class="box-party">
       <p>{{party.size}}</p>
       <p>{{party.table}}</p>
