@@ -11,8 +11,8 @@ export class MenuEditComponent implements OnInit {
   category: {} = {};
   selectedCategory: string;
   constructor(private db: DataService) { 
-    this.selectedCategory = routeSegment.toLowerCase();
-    this.db.getMenuItems().subscribe(item => )
+    //this.selectedCategory = routeSegment.toLowerCase();
+    //this.db.getMenuItems().subscribe(item => )
   }
 
   ngOnInit() {
