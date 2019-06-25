@@ -14,7 +14,7 @@ export class DataService {
     DataService.location = new Location();
     DataService.location.Menu = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
     DataService.location.Orders = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').valueChanges();
-    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();   
+    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
   }
 
   addParty()
@@ -52,7 +52,7 @@ export class DataService {
       
     } else {
       return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
-      .collection('Menu', ref => ref.where('category', '==', categories)).valueChanges()      
+      .collection('Menu', ref => ref.where('category', '==', categories)).valueChanges()
     }
   }
 
