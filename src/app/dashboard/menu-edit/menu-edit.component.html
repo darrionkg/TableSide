@@ -10,9 +10,9 @@
 
 <div>
     <form>
-        <input type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}" placeholder="ingredients seperated by a ','">
-        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name">
-        <input type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price">
-        <button (click)="addToMenu(ingredients, name, price)">Add to Menu</button>
+        <input type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}" placeholder="ingredients seperated by a ','" #ref>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name" #refer>
+        <input type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price" #reference>
+        <button (click)="addToMenu(ingredients, name, price)" (click)="reference.value=''" (click)="refer.value=''" (click)="ref.value=''">Add to Menu</button>
     </form>
 </div>

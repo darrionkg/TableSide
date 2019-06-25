@@ -15,7 +15,6 @@ export class MenuEditComponent implements DoCheck {
   constructor(private router: Router, private route: ActivatedRoute, private db: DataService) {
     this.db.getMenuItems().subscribe(ref => {
       this.menuItems = ref;
-      console.log(ref);
     })
   }
 
@@ -26,5 +25,4 @@ export class MenuEditComponent implements DoCheck {
   addToMenu(ingredientString, name, price) {
     this.db.addToMenu(this.selectedCategory, ingredientString, name, price);
   }  
-
 }
