@@ -60,9 +60,20 @@ export class DataService {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').add(data);
   }
 
-  addOrderItem(OrderId: string, Item: {}) {
+  addOrderItem(orderId: string, Item: {}) {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders')
-    .doc(OrderId).collection('Items').add(Item);
+    .doc(orderId).collection('Items').add(Item);
+  }
+
+  getOrders()
+  getOrders(partyId: string)
+  getOrders(partyId?: string) {
+    if (!partyId || partyId === "All") {
+      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').valueChanges()      
+    } else {
+      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
+      .collection('Orders', ref => ref.where('PartyId', '==', partyId)).valueChanges()
+    }      
   }
 
 
