@@ -19,7 +19,13 @@ export class DashboardComponent implements OnInit {
   // let sidebar = document.querySelector('.sidebar');
   // let sidebarToggle = document.querySelector('.sidebar-toggle');
   // let toggleSidebar = 
-
+  touch = false;
+  onSwipeLeft(event) {
+    this.touch = true;    
+  }
+  onSwipeRight(event) {
+    this.touch = false;
+  }
 
 }
 
