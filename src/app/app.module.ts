@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { CatFilter } from './catFilter.pipe';
+import { MenuEditComponent } from './dashboard/menu-edit/menu-edit.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -34,7 +35,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     OrderDetailComponent,
     MenuComponent,
     AddCategoryComponent,
-    CatFilter    
+    CatFilter,
+    MenuEditComponent
   ],
   imports: [
     BrowserModule,
