@@ -9,7 +9,7 @@ import { Observable, merge } from 'rxjs';
 })
 
 export class DataService {
-  constructor(private database: AngularFirestore) {}
+  constructor(private database: AngularFirestore) { }
 
   //Parties
   addParty()
@@ -25,13 +25,13 @@ export class DataService {
   getParties() {
     //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
     return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges()
-    .pipe(map((ref) => {
-      return ref.map(a => {
-        let data: Object = a.payload.doc.data();
-        let id = a.payload.doc.id;
-        return { id, ...data};
-      })
-    }));    
+      .pipe(map((ref) => {
+        return ref.map(a => {
+          let data: Object = a.payload.doc.data();
+          let id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      }));
 
   }
 
@@ -41,13 +41,13 @@ export class DataService {
 
   getMenuItems(): Observable<any>
   getMenuItems(categories: string): Observable<any>
-  getMenuItems(categories?: string) : Observable<any> {    
+  getMenuItems(categories?: string): Observable<any> {
     if (!categories || categories === "All") {
       return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
-      
+
     } else {
       return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
-      .collection('Menu', ref => ref.where('category', '==', categories)).valueChanges()
+        .collection('Menu', ref => ref.where('category', '==', categories)).valueChanges()
     }
   }
 
@@ -110,10 +110,10 @@ export class DataService {
     })
   }
 
-  addCategory(name) {    
+  addCategory(name) {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
-      let categories = ref.data();      
-      
+      let categories = ref.data();
+
       let newArray = categories['Names'].slice();
       newArray.push(name);
       this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
@@ -122,9 +122,25 @@ export class DataService {
     })
   }
 
-  updateCategories(newArray: string[]) {    
+  updateCategories(newArray: string[]) {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
       Names: newArray
-    })        
+    })
+  }
+  //Add and Delete from Menu
+  addToMenu(category, ingredientString: string, name, price) {
+    let ingredientArray: string[] = [];
+    if (!ingredientString.includes(' ')) {
+      ingredientArray = [ingredientString];
+    } else {
+      ingredientArray = ingredientString.split(" ")
+    }
+    let data = {
+      category: category,
+      ingredientString: ingredientArray,
+      name: name,
+      price: price
+    }
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').add(data);
   }
 }
