@@ -95,9 +95,9 @@ export class DataService {
     })
   }
 
-  updateCategories(newArray: string[]) {    
+  updateCategories(newArray: string[]) {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
       Names: newArray
-    })        
+    });
   }
 }

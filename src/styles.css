@@ -5,3 +5,17 @@ body {
   margin: 0;
   width: 100%;
 }
+
+.fb-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.fb-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-none {
+  display: none;
+}

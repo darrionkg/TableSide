@@ -1,15 +1,9 @@
-.box-container {
-  display: flex;
-  flex-direction: column;
-}
 
 a:hover {
   background-color: gray;
 }
 
 .box {
-  display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   border-bottom: 1px solid gray;
 }
@@ -19,6 +13,15 @@ a:hover {
   margin-right: 20px;
 }
 
+.menu-item {
+  justify-content: right;
+  border-bottom: 1px solid gray;
+}
+
+.menu-item p {
+  margin-left: 5%;
+}
+
 .category-nav .box {
   margin: 0;
   padding: 0;
@@ -26,8 +29,6 @@ a:hover {
 
 .category-nav .box a{
   list-style-type: none;
-  /* border-left: 1px solid #C1C1C1;
-  border-right: 1px solid #C1C1C1; */
   width: 100%;
   text-align: center;
   padding: 10px 0;
@@ -47,9 +48,37 @@ a:hover {
 
 .activeCat {
   background-color: #C1C1C1;
-  box-shadow: 0px 2px 10px black;
+  box-shadow: 0px 2px 4px black;
 }
 
 .notActiveCat {
   background-color: white;
+}
+
+.fb-space-between {
+  justify-content: space-between;
+}
+
+.wide {
+  width: 100%;
+}
+
+.fb-space-evenly {
+  justify-content: space-evenly;
+}
+
+.fb-wrap {
+  flex-wrap: wrap;
+}
+
+.menu-info-trigger {
+  border: 1px solid black;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+
+.menu-ingredient-window ul li {
+  padding: 0 10px;
+  list-style: none;
 }
