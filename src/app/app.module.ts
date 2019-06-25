@@ -20,6 +20,10 @@ import { AddCategoryComponent } from './dashboard/add-category/add-category.comp
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { CatFilter } from './catFilter.pipe';
 
+import {MatButtonModule} from '@angular/material/button';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatInputModule} from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,7 @@ import { CatFilter } from './catFilter.pipe';
     OrderDetailComponent,
     MenuComponent,
     AddCategoryComponent,
-    CatFilter
+    CatFilter    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,11 @@ import { CatFilter } from './catFilter.pipe';
     FormsModule,
     DashboardRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatButtonModule,
+    DragDropModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [CatFilter],
   bootstrap: [AppComponent]
