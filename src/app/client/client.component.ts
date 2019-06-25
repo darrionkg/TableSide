@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../services/data.service';
 import { Router } from '@angular/router';
-import { Observable, Map } from 'rxjs';
 import { AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
 

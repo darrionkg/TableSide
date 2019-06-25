@@ -9,14 +9,9 @@ import { Observable, merge } from 'rxjs';
 })
 
 export class DataService {
-  static location: Location;
-  constructor(private database: AngularFirestore) {
-    DataService.location = new Location();
-    DataService.location.Menu = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
-    DataService.location.Orders = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').valueChanges();
-    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
-  }
+  constructor(private database: AngularFirestore) {}
 
+  //Parties
   addParty()
   addParty(table: number)
   addParty(table?: number) {
@@ -56,6 +51,8 @@ export class DataService {
     }
   }
 
+
+  //Orders
   addOrder(partyId: string) {
     let data = {
       partyId: partyId
@@ -68,6 +65,8 @@ export class DataService {
     .doc(OrderId).collection('Items').add(Item);
   }
 
+
+  //Categories
   deleteCategory(name) {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
       let categories = ref.data();
@@ -95,10 +94,10 @@ export class DataService {
       })
     })
   }
-}
 
-export class Location {
-  Menu: Observable<any>;
-  Orders: Observable<any>;
-  Parties: Observable<any>;
+  updateCategories(newArray: string[]) {    
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
+      Names: newArray
+    })        
+  }
 }
