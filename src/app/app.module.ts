@@ -24,6 +24,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     OrderDetailComponent,
     MenuComponent,
     AddCategoryComponent,
-    CatFilter    
+    CatFilter,
+    NavbarComponent    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     DragDropModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [CatFilter],
   bootstrap: [AppComponent]
