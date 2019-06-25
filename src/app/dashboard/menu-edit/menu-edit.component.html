@@ -1,1 +1,7 @@
-let item or menuItems | catFilter: selectedCategory
+<h2>{{selectedCategory}}</h2>
+
+<div *ngIf="menuItems.length > 0">
+    <div *ngFor="let item of menuItems | catFilter:selectedCategory">
+        <h4>{{item.name}}</h4>       
+    </div>
+</div>
