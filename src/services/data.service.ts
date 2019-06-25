@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import { Observable } from 'rxjs';
+import { mapTo } from 'rxjs/operators';
+import { Observable, merge } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,9 @@ export class DataService {
   }
 
   getParties() {
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
+    //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
+    return merge(this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges().pipe(mapTo('data')),
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').stateChanges().pipe(mapTo('meta')));
   }
 
   getMenuCatagories() {
@@ -56,6 +59,34 @@ export class DataService {
   addOrderItem(OrderId: string, Item: {}) {
     this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders')
     .doc(OrderId).collection('Items').add(Item);
+  }
+
+  deleteCategory(name) {
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
+      let categories = ref.data();
+      let newArray = [];
+      for (let i = 0; i < categories['Names'].length; i++) {
+        const element = categories['Names'][i];
+        if (element != name) {
+          newArray.push(element);
+        }
+      }
+      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
+        Names: newArray
+      })
+    })
+  }
+
+  addCategory(name) {    
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
+      let categories = ref.data();      
+      
+      let newArray = categories['Names'].slice();
+      newArray.push(name);
+      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
+        Names: newArray
+      })
+    })
   }
 
 }
