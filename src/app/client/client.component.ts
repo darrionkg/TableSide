@@ -30,6 +30,16 @@ export class ClientComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  myFunction() {
+    var x: HTMLElement = document.getElementById('myTopnav');
+    if (x.className === 'topnav') {
+      x.className += 'responsive';
+    } else {
+      x.className = 'topnav';
+    }
+  }
+
   // myFunction() {
   //   var x = document.getElementById("myLinks");
   //   if (x.style.display === "block") {
@@ -38,4 +48,5 @@ export class ClientComponent implements OnInit {
   //     x.style.display = "block";
   //   }
   // }
+
 }
