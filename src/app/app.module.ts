@@ -17,6 +17,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MenuComponent } from './menu/menu.component';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { CatFilter } from './catFilter.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
     PartyDetailComponent,
     OrderDetailComponent,
     MenuComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    CatFilter
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [CatFilter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
