@@ -5,7 +5,7 @@
 
 <div class= "addNewOrder box" (click)="addSeat()">Add an Order <img src="assets/img/plus.png" alt="plus operator" height="42" width="42"></div>
 <div class="allParties" *ngFor="let order of orders">
-  <div class="box" (click)="goToOrderDetails()">
-    <h1>{{order.partyId}}</h1>
+  <div class="box" (click)="goToOrderDetails(order.id)">
+    <h1>{{order.id}}</h1>
   </div>
 </div> 

@@ -42,4 +42,8 @@ export class PartyDetailComponent implements OnInit {
     this.dataService.getOrders(this.partyId).subscribe(order => this.orders = order);
   }
 
+  goToOrderDetails(id) {
+
+    this.router.navigate(['parties/' + this.partyId+ '/orders/' + id]);
+  }
 }

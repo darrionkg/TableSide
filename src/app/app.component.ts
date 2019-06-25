@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'TableSide';
   constructor (private dataservice: DataService) { 
     dataservice.getOrders('8JTHuYZppP1W13ukqh1B').subscribe( ref => {
-      console.log(ref[0]['id']);
+      console.log(ref);
       
     })
         dataservice.getMenuCatagories().subscribe( ref => {
