@@ -8,12 +8,10 @@ import { DataService } from 'src/services/data.service';
 })
 export class DashboardComponent implements OnInit {
   categories: {} = {};
+  counts = 0;
   constructor(database: DataService) { 
     database.getMenuCatagories().subscribe(ref => {
       this.categories = ref;      
-    })
-    database.getParties().subscribe ( ref => {
-      console.log(ref);
     })
   }  
   ngOnInit() {

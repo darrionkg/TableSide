@@ -14,7 +14,7 @@ export class ClientComponent implements OnInit {
   parties: any[] = [];
   constructor(private dataService: DataService) {
 
-    //dataService.getParties().subscribe( ref => this.parties = ref);
+    dataService.getParties().subscribe( ref => this.parties = ref);
    }
   
    addParty() {

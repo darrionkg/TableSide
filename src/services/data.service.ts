@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import { mapTo } from 'rxjs/operators';
+import { mapTo, combineAll, count, map } from 'rxjs/operators';
 import { Observable, merge } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class DataService {
     DataService.location = new Location();
     DataService.location.Menu = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
     DataService.location.Orders = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').valueChanges();
-    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();    
+    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();   
   }
 
   addParty()
@@ -28,9 +28,16 @@ export class DataService {
   }
 
   getParties() {
-    //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
-    return merge(this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges().pipe(mapTo('data')),
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').stateChanges().pipe(mapTo('meta')));
+    //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
+    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges()
+    .pipe(map((ref) => {
+      return ref.map(a => {
+        let data: Object = a.payload.doc.data();
+        let id = a.payload.doc.id;
+        return { id, ...data};
+      })
+    }));    
+
   }
 
   getMenuCatagories() {
@@ -88,7 +95,6 @@ export class DataService {
       })
     })
   }
-
 }
 
 export class Location {
