@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import { Observable } from 'rxjs';
+import { mapTo, combineAll, count, map } from 'rxjs/operators';
+import { Observable, merge } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class DataService {
     DataService.location = new Location();
     DataService.location.Menu = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
     DataService.location.Orders = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').valueChanges();
-    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();    
+    DataService.location.Parties = database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();   
   }
 
   addParty()
@@ -27,7 +28,16 @@ export class DataService {
   }
 
   getParties() {
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').valueChanges();
+    //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
+    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges()
+    .pipe(map((ref) => {
+      return ref.map(a => {
+        let data: Object = a.payload.doc.data();
+        let id = a.payload.doc.id;
+        return { id, ...data};
+      })
+    }));    
+
   }
 
   getMenuCatagories() {
@@ -58,6 +68,33 @@ export class DataService {
     .doc(OrderId).collection('Items').add(Item);
   }
 
+  deleteCategory(name) {
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
+      let categories = ref.data();
+      let newArray = [];
+      for (let i = 0; i < categories['Names'].length; i++) {
+        const element = categories['Names'][i];
+        if (element != name) {
+          newArray.push(element);
+        }
+      }
+      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
+        Names: newArray
+      })
+    })
+  }
+
+  addCategory(name) {    
+    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
+      let categories = ref.data();      
+      
+      let newArray = categories['Names'].slice();
+      newArray.push(name);
+      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
+        Names: newArray
+      })
+    })
+  }
 }
 
 export class Location {
