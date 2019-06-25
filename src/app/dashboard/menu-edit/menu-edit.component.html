@@ -10,10 +10,9 @@
 
 <div>
     <form>
-        <input type="text" [(ngModel)]="catName" [ngModelOptions]="{standalone: true}"  placeholder="category">
         <input type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}" placeholder="ingredients seperated by a ','">
         <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name">
         <input type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price">
-        <button (click)="addToMenu(catName, ingredients, name, price)">Add to Menu</button>
+        <button (click)="addToMenu(ingredients, name, price)">Add to Menu</button>
     </form>
 </div>

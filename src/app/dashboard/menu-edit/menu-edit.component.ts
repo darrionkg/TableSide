@@ -16,7 +16,6 @@ export class MenuEditComponent implements DoCheck {
     this.db.getMenuItems().subscribe(ref => {
       this.menuItems = ref;
       console.log(ref);
-      
     })
   }
 
@@ -24,8 +23,8 @@ export class MenuEditComponent implements DoCheck {
     this.selectedCategory = this.route.snapshot.paramMap.get('category').toLowerCase();
   }
 
-  addToMenu(category, ingredientString, name, price) {
-    this.db.addToMenu(category, ingredientString, name, price);
-    }
-}
+  addToMenu(ingredientString, name, price) {
+    this.db.addToMenu(this.selectedCategory, ingredientString, name, price);
+  }  
 
+}

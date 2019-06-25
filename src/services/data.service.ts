@@ -101,10 +101,16 @@ export class DataService {
     })
   }
   //Add and Delete from Menu
-  addToMenu(category, ingredientString, name, price) {
+  addToMenu(category, ingredientString: string, name, price) {
+    let ingredientArray: string[] = [];
+    if (!ingredientString.includes(' ')) {
+      ingredientArray = [ingredientString];
+    } else {
+      ingredientArray = ingredientString.split(" ")
+    }
     let data = {
       category: category,
-      ingredientString: ingredientString.split(" "),
+      ingredientString: ingredientArray,
       name: name,
       price: price
     }
