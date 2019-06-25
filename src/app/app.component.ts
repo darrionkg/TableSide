@@ -9,8 +9,8 @@ import { DataService } from 'src/services/data.service';
 export class AppComponent {
   title = 'TableSide';
   constructor (private dataservice: DataService) { 
-    dataservice.getOrderItems('testOrder').subscribe( ref => {
-      console.log(ref);
+    dataservice.getOrders('8JTHuYZppP1W13ukqh1B').subscribe( ref => {
+      console.log(ref[0]['id']);
       
     })
         dataservice.getMenuCatagories().subscribe( ref => {

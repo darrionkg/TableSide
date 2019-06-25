@@ -3,11 +3,9 @@
     <a href="#home" class="active">Logo</a>
 
 
-<div class= "box">New Menu Item <img src="assets/img/plus.png" alt="plus operator" (click)="goToMenu()" height="42" width="42"></div>
-
-<button (click)="addSeat()">Test Adding a Seat</button>
-<!-- <div class="box"><p>{{seats.seats}}</p></div> -->
-  <!-- <div class="allParties" *ngFor="let seat of seatsArray">
-    <p>seat</p>
-  </div> -->
+<div class= "addNewOrder box" (click)="addSeat()">Add an Order <img src="assets/img/plus.png" alt="plus operator" height="42" width="42"></div>
+<div class="allParties" *ngFor="let order of orders">
+  <div class="box" (click)="goToOrderDetails()">
+    <h1>{{order.partyId}}</h1>
+  </div>
 </div> 
