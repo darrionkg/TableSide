@@ -27,6 +27,7 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {MatMenuModule} from '@angular/material/menu';
     DragDropModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [CatFilter],
   bootstrap: [AppComponent]

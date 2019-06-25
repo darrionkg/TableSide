@@ -1,11 +1,14 @@
-<nav>
-    <div class="container">
-        <input id="responsive-menu" type="checkbox">
-        <label for="responsive-menu">Menu <span id="menu-icon"></span></label>
-        <div id="overlay"></div>
-        <ul>
-            <li>Parties</li>
-            <li>Menu</li>
-        </ul>        
-    </div>
-</nav>
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>view_list</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+
+    <button mat-menu-item>
+        <mat-icon>wc</mat-icon>
+        <span>Parties</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>room_service</mat-icon>
+        <span>Menu</span>
+    </button>
+</mat-menu>
