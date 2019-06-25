@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class PartyDetailComponent implements OnInit {
   partyId: string;
   seats;
+  seatsArray;
   constructor(private router: Router, private route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit() {
@@ -25,11 +26,9 @@ export class PartyDetailComponent implements OnInit {
 
   addSeat() {
     this.dataService.addSeat(this.partyId);
-    // this.numberOfSeats = this.dataService.getNumberOfSeats(this.partyId).subscribe( ref => this.numberOfSeats = ref);
-    // console.log(this.numberOfSeats);
   }
 
   getSeatNum() {
-    this.dataService.getParty(this.partyId).subscribe(party => this.seats = party);
+    this.dataService.getParty(this.partyId).subscribe(party => this.seats = party); 
   }
 }
