@@ -1,14 +1,11 @@
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <mat-icon>view_list</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
+<ul class="nav-bar">
+    <li class="nav-bar-item"><a href="#home">Table</a></li>    
+    <mat-icon (click)="toggleMenu()" class="hamburger-menu">menu</mat-icon>
+</ul>
 
-    <button mat-menu-item>
-        <mat-icon>wc</mat-icon>
-        <span>Parties</span>
-    </button>
-    <button mat-menu-item>
-        <mat-icon>room_service</mat-icon>
-        <span>Menu</span>
-    </button>
-</mat-menu>
+<div *ngIf="menuOpen" class="navMenu">
+<ul class="nav-menu">
+    <li><a href="#home">Tables</a></li>
+    <li><a href="#home">Menu</a></li>
+</ul>
+</div>
