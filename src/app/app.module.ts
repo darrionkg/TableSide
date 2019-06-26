@@ -30,7 +30,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuModalComponent } from './menu-modal/menu-modal.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
-import { MenuStageViewComponent } from './menu-stage-view/menu-stage-view.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +44,7 @@ import { MenuStageViewComponent } from './menu-stage-view/menu-stage-view.compon
     MenuEditComponent,
     NavbarComponent,
     MenuModalComponent,
-    StatusBarComponent,
-    MenuStageViewComponent
+    StatusBarComponent
   ],
   imports: [
     BrowserModule,
@@ -67,3 +65,24 @@ import { MenuStageViewComponent } from './menu-stage-view/menu-stage-view.compon
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+//party 
+//Nothing done salmon
+
+//Change status in data service
+
+//Menu- redirect on stage
+
+//swipe on menu change cat
+
+
+//parties status effects
+//scrollabe div patries window
+//make dropdown for order page
+//add table when making new party
+
+//order
+//Staged  yellow
+//Sent    blue
+//Expo  green

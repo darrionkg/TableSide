@@ -23,3 +23,7 @@ body {
 .display-none {
   display: none;
 }
+
+.full {
+  height: 100vh;  
+}

@@ -1,14 +1,15 @@
+<div class="full" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)">
 <div class="component-head">
   <h2>Menu Component Head</h2>
 </div>
 <nav class="category-nav">
   <ul class="box fb-row">
-    <a [class]="isActiveCat(cat)" *ngFor="let cat of categoryArray" (click)="selectCategory(cat)">{{cat}}</a>
+    <a *ngFor="let cat of categoryArray; let i = index" [ngClass]="selectedCategory === i ? 'activeCat' : ''" (click)="selectCategory(i)">{{cat}}</a>
   </ul>
 </nav>
 
-<div class="box-container menu-container fb-col">
-    <div class="box menu-item fb-col fb-space-between" *ngFor="let item of allItems | catFilter: selectedCategory">
+<div *ngIf="categoryArray.length > 0" class="box-container menu-container fb-col">
+    <div class="box menu-item fb-col fb-space-between" *ngFor="let item of allItems | catFilter: categoryArray[selectedCategory]">
       <div class="fb-row">
         <div class="fb-row fb-space-between wide">
           <p><span *ngIf="item.ingredients" class="menu-info-trigger"  (click)="showIngredients(item)"><i class="material-icons">info</i></span>{{item.name}}</p>
@@ -26,3 +27,4 @@
   </div>
 <app-menu-modal [modalItem]="modalItem"></app-menu-modal>
 
+</div>

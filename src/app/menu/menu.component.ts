@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   allItems: [] = [];
   menuCategories: any;
-  categoryArray;
-  selectedCategory = 'drink';
+  categoryArray = [];
+  selectedCategory = 0;
   modalItem;
   stagedArray: any[] = [];
   notMenu = true;
@@ -53,15 +53,6 @@ export class MenuComponent implements OnInit {
     modal.style.display = 'block';
   }
 
-  selectCategory(cat) {
-    this.selectedCategory = cat.toLowerCase();
-  }
-
-  isActiveCat(cat) {
-    if (cat.toLowerCase() === this.selectedCategory) {
-      return 'activeCat';
-    }
-  }
 
   checkURL(): void {
     if(this.router.url === '/menu')
@@ -70,6 +61,23 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.checkURL();
+  }
+
+  selectCategory(index) {
+    this.selectedCategory = index;
+  }
+  onSwipeRight() {
+    this.selectedCategory++;
+    if (this.selectedCategory >= this.categoryArray.length) {
+      this.selectedCategory = 0;
+    }
+  }
+
+  onSwipeLeft() {
+    this.selectedCategory--;
+    if (this.selectedCategory < 0) {
+      this.selectedCategory = this.categoryArray.length - 1;
+    }
   }
 
 }
