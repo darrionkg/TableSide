@@ -12,31 +12,25 @@ import { AngularFirestore } from '@angular/fire/firestore';
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.css']
 })
-export class ClientComponent implements OnInit {
-
+export class ClientComponent {
   parties: any[] = [];
   constructor(private dataService: DataService, private db: AngularFirestore, private router: Router) {
-
-    dataService.getParties().subscribe( ref => this.parties = ref);
-   }
-
-   addParty() {
-     this.dataService.addParty().then(ref => console.log(ref.id));
-   }
-
-   goToPartyPage(party) {
-     this.router.navigate(['parties', party.id]);
-   }
-
-  ngOnInit() {
+    dataService.getParties().subscribe(ref => this.parties = ref);
   }
 
-  myFunction() {
-    var x: HTMLElement = document.getElementById('myTopnav');
-    if (x.className === 'topnav') {
-      x.className += 'responsive';
-    } else {
-      x.className = 'topnav';
+  addParty() {
+    this.dataService.addParty().then(ref => console.log(ref.id));
+  }
+
+  goToPartyPage(party) {
+    this.router.navigate(['parties', party.id]);
+  }
+
+  idToColor(str:string) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
-  }
+    return `hsl(${hash}, 90%, 30%)`    
+  }  
 }

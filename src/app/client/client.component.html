@@ -1,34 +1,13 @@
-
-<html>
-  <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-
-
-  <!-- <div class="topnav" id="myTopnav">
-  <a href="#FullMenu" class="active styly">Home</a>
-  <br>
-  <a href="#partyList" class="styly">Party</a>
-  <br>
-  <a href="#Menu" class="styly">Menu</a>
-  <br>
-  <a href="#About" class="styly">About TableSide</a>
-  <a href="javascript:void(0);" class="icon" (click)="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div> -->
-
 <div class="box-container">
-  <div class= "box-newParty ">New Party <img src="assets/img/plus.png " (click)="addParty() " alt="plus operator
-    " height="42 " width="42 ">
+  <div class="card new-party" (click)="addParty()" >
+    <div>New Party</div>
+    <div style="font-size: 40px;">&#x2b;</div>
   </div>
-  <div class="box-party " *ngFor="let party of parties "><p>{{party.size}}</p><p>{{party.table}}</p>
+  
+
+  <div class="card party" *ngFor="let party of parties" routerLink="/parties/{{party.id}}">
+    <div *ngIf="party.table > 0">Table: {{party.table}}</div>
+    <div *ngIf="party.table === 0">Party Id: <span [ngStyle]="{'color': idToColor(party.id)}">{{party.id.slice(0, 3)}}</span></div>
+    <div *ngIf="party.size > 0"><small>Size {{party.size}}</small></div>
   </div>
-  </div>
-
-</body>
-
-  </html>
-
+</div>

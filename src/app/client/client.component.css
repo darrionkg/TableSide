@@ -1,150 +1,41 @@
 
-.box-newParty{
+/* .box-container div {
+  background-color: white;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+} */
+
+
+h4, h5 {
+  margin: 10px 0px;
+}
+
+ * {
+   font-family: Arial,
+   Helvetica,
+   sans-serif;
+ }
+.card {
+  margin: 10px;  
+  font-size: 30px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  vertical-align: middle;  
+}
+
+.new-party{
+  display: flex;  
+  flex-direction: row;
+  align-items: center;
+  background-color: lightgrey;  
+  justify-content: center;
+}
+
+.party {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: lightgrey;
 }
- .box-container{
-    display: row;
-
-    background-color: black;
-}
-
-.box-container > div{
-    background-color: white;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-} 
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#myTopnav {
-  overflow: hidden;
-  background-color: #333;
-  display: flex;
-  flex-direction: row;
-  justify-content:center;
-}
-
-.topnav a {
-  display: block;
-  color: #f2f2f2;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
-    /* background-color: lightgreen; */
-}
-
-.box-container a {
-    /* background-color: peachpuff;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px; */
-    width: 100%;
-    border-bottom: 1px solid black;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
-}
-
-.box-container a div {
-  display: flex;
-  flex-direction: row;
-}
-
-.topnav {
-    overflow: hidden;
-    background-color: white;
-    position: relative;
-  }
-
-  /* Hide the links inside the navigation menu (except for logo/home) */
-  .topnav #myLinks {
-    display: none;
-  }
-
-  /* Style navigation menu links */
-  .topnav a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-  }
-
-  /* Style the hamburger menu */
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  /* Add a grey background color on mouse-over */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  /* Style the active link (or home/logo) */
-  .active {
-    background-color: #4CAF50;
-    color: white;
-
-  }
-
-  i.fa.fa-bars::after{
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    display: none;
-  }
-
-  .box-link:hover {
-    background-color: gray;
-  }
-
-  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-}
-
-
-  
-  
