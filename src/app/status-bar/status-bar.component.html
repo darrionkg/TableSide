@@ -1,5 +1,3 @@
 <div class="fb-row status-box">
-  <div class="status-badge red"></div>
-  <div class="status-badge yellow"></div>
-  <div class="status-badge green"></div>
+  <div *ngFor="let item of items" [class]=item.status></div>
 </div>
