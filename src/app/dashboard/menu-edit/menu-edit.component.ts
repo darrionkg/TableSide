@@ -11,6 +11,9 @@ import { DataService } from 'src/services/data.service';
 export class MenuEditComponent implements DoCheck {
   menuItems: {} = {};
   selectedCategory: string;
+  ingredients: string; 
+  name: string; 
+  price: number;
   
   constructor(private router: Router, private route: ActivatedRoute, private db: DataService) {
     this.db.getMenuItems().subscribe(ref => {
@@ -24,5 +27,12 @@ export class MenuEditComponent implements DoCheck {
 
   addToMenu(ingredientString, name, price) {
     this.db.addToMenu(this.selectedCategory, ingredientString, name, price);
+    this.ingredients = '';
+    this.name = '';
+    this.price = null;
   }  
+
+  itemDelete(item) {
+    this.db.deleteFromMenu(item.id);   
+  }
 }
