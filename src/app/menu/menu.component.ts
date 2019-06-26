@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   menuCategories: any;
   categoryArray;
   selectedCategory = 'drink';
+  modalItem;
 
   constructor(private db: DataService) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
@@ -27,6 +28,14 @@ export class MenuComponent implements OnInit {
 
   showIngredients(item) {
     console.log(item);
+    this.modalItem = item.ingredients;
+    const modal = document.getElementById('menu-modal');
+    modal.style.display = 'block';
+  }
+
+  closeModal() {
+    console.log('something');
+    
   }
 
   selectCategory(cat) {

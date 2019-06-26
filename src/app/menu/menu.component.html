@@ -17,11 +17,12 @@
         <button class="itemButton" (click)='stageItem(item)'>Stage</button>
       </div>
 
-      <div class="menu-ingredient-window display-none">
+      <!-- <div class="menu-ingredient-window">
         <ul class="fb-row fb-wrap">
           <li *ngFor="let item of item.ingredients">{{item}}</li>
         </ul>
-      </div>
+      </div> -->
     </div>
 </div>
+<app-menu-modal [modalItem]="modalItem"></app-menu-modal>
 
