@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   modalItem;
   stagedArray: any[] = [];
   notMenu = true;
+  partyId: string;
 
   constructor(private db: DataService, private activeRoute: ActivatedRoute, private router: Router) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
@@ -29,6 +30,7 @@ export class MenuComponent implements OnInit {
     const orderId = this.activeRoute.snapshot.paramMap.get('orderId');
     this.stagedArray.forEach(item => this.db.addOrderItem(orderId, item));
     this.stagedArray = [];
+    this.returnToParty();
   }
 
   stageItem(item) {
@@ -66,6 +68,11 @@ export class MenuComponent implements OnInit {
   checkURL(): void {
     if(this.router.url === '/menu')
       this.notMenu = false;
+  }
+
+  returnToParty() {
+    this.partyId = this.activeRoute.snapshot.paramMap.get('partyId');
+    this.router.navigate(['parties/' + this.partyId])
   }
 
   ngOnInit() {
