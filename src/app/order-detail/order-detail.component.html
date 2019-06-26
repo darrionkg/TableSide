@@ -1,11 +1,16 @@
-<div class= "component-head box"><h2 [routerLink]="['menu']" routerLinkActive="router-link-active">Add Item  +</h2></div>
-
-<div>
-  <div class="allItems" *ngFor="let item of allItems">
-    <h2>{{item.name}}</h2>
+<div class="full" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)">
+  <div class="component-head box">
+    <h2 [routerLink]="['menu']" routerLinkActive="router-link-active">Add Item +</h2>
   </div>
-</div>
-<div class="totalContainer">
-  <p>Total:</p>
-  <p class="totalCost">$14.99</p>
+
+  <div>
+    <div class="allItems" *ngFor="let item of allItems">
+      <h2>{{item.name}}</h2>
+    </div>
+  </div>
+  <div class="totalContainer">
+    <p>Total:</p>
+    <p class="totalCost">$14.99</p>
+  </div>
+
 </div>
