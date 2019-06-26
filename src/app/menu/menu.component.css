@@ -71,14 +71,15 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.menu-info-trigger {
-  border: 1px solid black;
+.menu-info-trigger  {
   margin-right: 20px;
-  padding: 5px 10px;
-  border-radius: 30px;
 }
 
 .menu-ingredient-window ul li {
   padding: 0 10px;
   list-style: none;
+}
+
+span i {
+  vertical-align: middle
 }

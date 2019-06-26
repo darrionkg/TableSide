@@ -33,14 +33,8 @@ export class MenuComponent implements OnInit {
     modal.style.display = 'block';
   }
 
-  closeModal() {
-    console.log('something');
-    
-  }
-
   selectCategory(cat) {
     this.selectedCategory = cat.toLowerCase();
-    console.log(cat);
   }
 
   isActiveCat(cat) {

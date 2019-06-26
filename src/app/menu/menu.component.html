@@ -11,17 +11,11 @@
     <div class="box menu-item fb-col fb-space-between" *ngFor="let item of allItems | catFilter: selectedCategory">
       <div class="fb-row">
         <div class="fb-row fb-space-between wide">
-          <p><span *ngIf="item.ingredients" class="menu-info-trigger"  (click)="showIngredients(item)">i</span>{{item.name}}</p>
+          <p><span *ngIf="item.ingredients" class="menu-info-trigger"  (click)="showIngredients(item)"><i class="material-icons">info</i></span>{{item.name}}</p>
           <p class="menu-price">${{item.price}}</p>
         </div>
         <button class="itemButton" (click)='stageItem(item)'>Stage</button>
       </div>
-
-      <!-- <div class="menu-ingredient-window">
-        <ul class="fb-row fb-wrap">
-          <li *ngFor="let item of item.ingredients">{{item}}</li>
-        </ul>
-      </div> -->
     </div>
 </div>
 <app-menu-modal [modalItem]="modalItem"></app-menu-modal>

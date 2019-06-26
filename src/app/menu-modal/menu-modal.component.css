@@ -1,3 +1,4 @@
+/* modal code from W3 schools */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -18,4 +19,9 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content i {
+  float: right;
+  margin: -10px auto;
 }
