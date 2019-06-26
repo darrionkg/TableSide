@@ -72,11 +72,24 @@ export class DataService {
   getMenuItems(categories: string): Observable<any>
   getMenuItems(categories?: string): Observable<any> {
     if (!categories || categories === "All") {
-      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').valueChanges();
-
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').snapshotChanges()
+      .pipe(map((ref) => {
+        return ref.map(a => {
+          let data: Object = a.payload.doc.data();
+          let id = a.payload.doc.id;
+          return { id, ...data};
+        })
+      })); 
     } else {
       return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
-        .collection('menu', ref => ref.where('category', '==', categories)).valueChanges()
+        .collection('menu', ref => ref.where('category', '==', categories)).snapshotChanges()
+        .pipe(map((ref) => {
+          return ref.map(a => {
+            let data: Object = a.payload.doc.data();
+            let id = a.payload.doc.id;
+            return { id, ...data};
+          })
+        })); 
     }
   }
 
@@ -171,4 +184,10 @@ export class DataService {
     }
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').add(data);
   }
+
+  deleteFromMenu(itemId: string) {    
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+    .collection('menu').doc(itemId).delete();          
+  }
+  
 }

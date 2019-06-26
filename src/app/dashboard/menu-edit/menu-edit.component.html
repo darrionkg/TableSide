@@ -1,10 +1,11 @@
 <h2>{{selectedCategory | titlecase}}</h2>
 <hr>
 <div *ngIf="menuItems.length > 0">
-    <div *ngFor="let item of menuItems | catFilter:selectedCategory">
+    <div *ngFor="let item of menuItems | catFilter:selectedCategory">        
         <h4>{{item.name}}</h4>
         <h4>{{item.ingredients}}</h4>
         <h4>${{item.price}}</h4>
+        <button mat-button (click)="itemDelete(item)">Delete</button>
     </div>
 </div>
 
@@ -13,18 +14,19 @@
     <form>
         <mat-form-field class="add-item-form">
             <input matInput type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}"
-                placeholder="ingredients separated by spaces" #ref>
+                placeholder="ingredients separated by spaces" required>
         </mat-form-field>
         <mat-form-field class="add-item-form">
             <input matInput type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name"
-                #refer>
+             required>
         </mat-form-field>
         <mat-form-field class="add-item-form">
             <input matInput type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price"
-                #reference>
+            required>
         </mat-form-field>
-        <button mat-stroked-button (click)="addToMenu(ingredients, name, price)" (click)="reference.value=''"
-            (click)="refer.value=''" (click)="ref.value=''">Create new</button>
+        <button *ngIf="ingredients && name && price" mat-stroked-button (click)="addToMenu(ingredients, name, price)">Create new</button>
+
+        <button *ngIf="!ingredients || !name || !price" disabled mat-stroked-button>Create new</button>
     </form>
 </div>
 
