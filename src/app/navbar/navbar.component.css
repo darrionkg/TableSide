@@ -170,6 +170,11 @@ nav {
   top: 29px;
 }
 
+i.material-icons{
+  position: relative;
+  top: 5px;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -177,5 +182,8 @@ nav {
 
   .sidenav a {
     font-size: 18px;
+  
   }
+
+  
 }
