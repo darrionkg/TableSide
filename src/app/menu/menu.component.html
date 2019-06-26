@@ -14,9 +14,15 @@
           <p><span *ngIf="item.ingredients" class="menu-info-trigger"  (click)="showIngredients(item)"><i class="material-icons">info</i></span>{{item.name}}</p>
           <p class="menu-price">${{item.price}}</p>
         </div>
-        <button class="itemButton" (click)='stageItem(item)'>Stage</button>
+        <button class="itemButton" (click)='stageItem(item)' *ngIf="notMenu">Stage</button>
       </div>
     </div>
-</div>
+    <div class="menu-staged-view fb-row" *ngIf="notMenu">
+      <div>
+        <p *ngFor="let item of stagedArray" (click)="unStageItem(item)">{{item.name}}</p>
+      </div>
+      <button class="add-staged"(click)="addStagedItems()">Stage Items</button>
+    </div>
+  </div>
 <app-menu-modal [modalItem]="modalItem"></app-menu-modal>
 
