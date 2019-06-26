@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { NavUpdateService } from './nav-update.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   menuOpen: boolean = false;
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private nav: NavUpdateService) {
+    //nav.heading
   }
 
   toggleMenu(value) {
@@ -24,4 +24,10 @@ export class NavbarComponent implements OnInit {
       document.getElementById("mySidenav").style.height = "0"; 
     }
   }
+
+  updateHeading(event) {
+    console.log(event);    
+  }
+
+
 }
