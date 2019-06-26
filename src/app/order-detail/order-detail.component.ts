@@ -10,14 +10,33 @@ import { NavUpdateService } from '../navbar/nav-update.service';
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.css']
 })
-export class OrderDetailComponent implements OnInit {
+export class OrderDetailComponent {
   allItems: Observable<any>;
-  constructor(private dataService: DataService, private route: ActivatedRoute, private nav: NavUpdateService) { }
-
-  ngOnInit() {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private nav: NavUpdateService) { 
     let orderId = this.route.snapshot.paramMap.get('orderId');
-    this.allItems = this.dataService.getOrderItems(orderId);
-    this.nav.updateHeading('Seat 1', '', 'Table 2', '');
+    this.dataService.getOrderItems(orderId).subscribe( ref => {
+      this.allItems = ref;            
+    })
+    this.dataService.getOrder(orderId).subscribe(ref => {
+      console.log(ref);
+      let table: string = '';
+      if (ref.table === 0) {
+        table = `Party: ${ref.partyId.slice(0, 3)}`
+      } else {
+        table = `Table: ${ref.table}`
+      }
+      console.log(`parties/${ref.partyId}`);
+      
+      this.nav.updateHeading(table, `parties/${ref.partyId}`, `Seat ${ref.seatId}`, '');
+    });
   }
 
+  idToColor(str:string) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return `hsl(${hash}, 90%, 30%)`    
+  }  
+  
 }

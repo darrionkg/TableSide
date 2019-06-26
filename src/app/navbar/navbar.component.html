@@ -1,6 +1,6 @@
 <nav>
-  <h3 class="heading light">{{headingString}}</h3>
-  <h2 class="light">{{titleString}}</h2>
+  <h4 routerLink="{{headingLink}}" class="heading light">{{headingString}}</h4>
+  <h2 routerLink="{{titleLink}}" class="light">{{titleString}}</h2>
 
 
   <div id="nav-icon" (click)="toggleMenu()" [ngClass]="menuOpen ? 'open' : '' ">
