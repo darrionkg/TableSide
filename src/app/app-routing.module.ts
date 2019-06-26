@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: '', component: ClientComponent},
   { path: 'parties', component: ClientComponent},
   { path: 'parties/:partyId', component: PartyDetailComponent },
-  { path: 'parties/:partyId/orders/:orderId', component: OrderDetailComponent},
   { path: 'parties/:partyId/orders/:orderId/menu', component: MenuComponent },
   { path: 'menu', component: MenuComponent }
 ];
