@@ -46,7 +46,6 @@ export class OrderDetailComponent {
       }      
       this.nav.updateHeading(table, `parties/${ref.partyId}`, `Seat ${ref.seatId}`, '');
     });
-    console.log(OrderDetailComponent.orderIndex);
     
     this.dataService.getOrders(this.partyId).subscribe(order => {
       this.allOrders = order.sort((a, b) => {
