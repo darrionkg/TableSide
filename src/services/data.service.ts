@@ -21,11 +21,6 @@ export class DataService {
 
   }
 
-
-
-
-
-
   //Parties
   addParty()
   addParty(table: number)
@@ -98,7 +93,6 @@ export class DataService {
     }
   }
 
-
   //Orders
   addOrder(partyId: string) {
     let data = {
@@ -109,14 +103,14 @@ export class DataService {
 
   addOrderItem(orderId: string, Item: {}) {
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders')
-    .doc(orderId).collection('Items').add(Item);
+    .doc(orderId).collection('items').add(Item);
   }
 
   getOrders(): Observable<any>
   getOrders(partyId: string): Observable<any>
   getOrders(partyId?: string): Observable<any> {
     if (!partyId || partyId === "All") {
-      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').valueChanges()      
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').valueChanges();
     } else {
 
       return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
@@ -126,12 +120,12 @@ export class DataService {
           let data: Object = a.payload.doc.data();
           let id = a.payload.doc.id;
           return { id, ...data};
-        })
-      }));         
+        });
+      }));
     }
   }
 
-  getOrderItems(orderId: string): Observable<any> {    
+  getOrderItems(orderId: string): Observable<any> {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
     .collection('orders').doc(orderId).collection('items').valueChanges()
   }

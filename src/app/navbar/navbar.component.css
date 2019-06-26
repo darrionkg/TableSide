@@ -2,6 +2,14 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.heading {
+  margin-left: 20px;
+}
+
+.light {
+  color: #dddddd;
+}
+
 .sidenav {
   height: 0;
   width: 100vw;
@@ -41,6 +49,7 @@ nav {
   z-index: 3;
   height: 70px;
   overflow-x: hidden;
+  justify-content: space-between;
 }
 .nav-item {
   width: 60px;
@@ -58,8 +67,7 @@ nav {
   width: 60px;
   height: 45px;
   position: relative;
-  margin: 12px;
-  margin-left: auto;
+  margin: 12px;  
   margin-right: 20px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
