@@ -15,9 +15,13 @@ a:hover {
   background-color: gray;
 }
 
-.box {
+.party-box {
   justify-content: space-evenly;
   border-bottom: 1px solid gray;
+  box-shadow: 3px 10px 30px 0px black;
+  z-index: 100;
+  margin-bottom: -1px;
+  height: 70px;
 }
 
 .component-head {

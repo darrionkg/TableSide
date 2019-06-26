@@ -1,21 +1,24 @@
 .status-box {
-  margin: 0;
   height: 10px;
   border: 1px solid black;
+  margin: 4px;
 }
 
 .status-badge {
   width: 100%;
 }
 
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.yellow {
+.staged {
   background-color: yellow;
+  width: 100%;
+}
+
+.sent {
+  background-color: blue;
+  width: 100%;
+}
+
+.expo {
+  background-color: green;
+  width: 100%;
 }

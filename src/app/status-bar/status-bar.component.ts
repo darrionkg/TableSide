@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from 'src/services/data.service';
 
 @Component({
   selector: 'app-status-bar',
@@ -8,11 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class StatusBarComponent implements OnInit {
 @Input() order: any;
 
-  constructor() {
+  items: any[];
+
+  constructor(private dataService: DataService) {
   }
-  
+
   ngOnInit() {
-    console.log(this.order);
+    this.dataService.getOrderItems(this.order.id).subscribe(item => this.items = item);
   }
 
 }
