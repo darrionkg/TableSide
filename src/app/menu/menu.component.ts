@@ -3,6 +3,7 @@ import { DataService } from 'src/services/data.service';
 import { Observable } from 'rxjs';
 import { MatIconModule} from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavUpdateService } from '../navbar/nav-update.service';
 
 @Component({
   selector: 'app-menu',
@@ -19,10 +20,15 @@ export class MenuComponent implements OnInit {
   notMenu = true;
   partyId: string;
 
-  constructor(private db: DataService, private activeRoute: ActivatedRoute, private router: Router) {
+  constructor(private db: DataService, private activeRoute: ActivatedRoute, private router: Router, private header: NavUpdateService) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
     this.menuCategories = this.db.getMenuCatagories();
     this.menuCategories.subscribe(item => this.categoryArray = item.Names);
+
+    let partyId = this.activeRoute.snapshot.paramMap.get('partyId');
+
+    header.updateHeading('home', '', partyId.slice(0, 3), 'parties/' + partyId);
+
   }
 
   // http://localhost:4200/parties/7xgfzI5M0yO7ATPf5Q0k/orders/JbL2CHFZM0HeGeMNZVlh/menu

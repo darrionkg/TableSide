@@ -16,13 +16,13 @@ export class PartyDetailComponent implements OnInit {
   orders: Observable<any>;
   statusItem = 'test string';
 
-  constructor(private router: Router, private route: ActivatedRoute, private dataService: DataService, private nav: NavUpdateService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private dataService: DataService, private nav: NavUpdateService) {}
 
   ngOnInit() {
     this.partyId = this.route.snapshot.paramMap.get('partyId');
     this.getSeatNum();
     this.getAllOrders();
-    this.nav.updateHeading(this.partyId.slice(0, 3), '', 'Title', '')
+    this.nav.updateHeading(this.partyId.slice(0, 3), '', 'Home', '')
   }
 
   goToMenu() {
