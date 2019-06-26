@@ -21,7 +21,7 @@ h4, h5 {
   display: flex;  
   flex-direction: row;
   align-items: center;
-  background-color: lightgrey;  
+  background-color: #e6e6ff;  
   justify-content: center;
 }
 
@@ -29,5 +29,5 @@ h4, h5 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightgrey;
+  background-color:#ffe6f3;
 }

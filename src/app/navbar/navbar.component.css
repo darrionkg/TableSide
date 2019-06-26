@@ -7,7 +7,7 @@ body {
 }
 
 .light {
-  color: #dddddd;
+  color:black;
 }
 
 .sidenav {
@@ -17,7 +17,7 @@ body {
   z-index: 1;
   top: 70px;  
   left: 0;
-  background-color: #111;
+  background-color:#fafafa;
   overflow-x: hidden;
   transition: 0.2s;
   /* padding-top: 60px; */
@@ -36,7 +36,7 @@ body {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: black;
 }
 
 nav {  
@@ -45,7 +45,7 @@ nav {
   left: 0;
   width: 100vw;
   display: flex;
-  background-color: #333;
+  background-color: #ff9a9a;
   z-index: 3;
   height: 70px;
   overflow-x: hidden;
@@ -59,7 +59,7 @@ nav {
   margin-left: auto;  
   text-align: center;
   vertical-align: middle;
-  color: white;
+  color: black;
 }
 
 
@@ -97,31 +97,37 @@ nav {
   -moz-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
+  background-color: #9999ff
 }
 
 #nav-icon span:nth-child(even) {
   left: 50%;
   border-radius: 0 9px 9px 0;
+  background-color: #9999ff
 }
 
 #nav-icon span:nth-child(odd) {
   left: 0px;
   border-radius: 9px 0 0 9px;
+  background-color: #9999ff
 }
 
 #nav-icon span:nth-child(1),
 #nav-icon span:nth-child(2) {
   top: 0px;
+  background-color: #9999ff
 }
 
 #nav-icon span:nth-child(3),
 #nav-icon span:nth-child(4) {
   top: 18px;
+  background-color: #9999ff
 }
 
 #nav-icon span:nth-child(5),
 #nav-icon span:nth-child(6) {
   top: 36px;
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(1),
@@ -130,6 +136,7 @@ nav {
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(2),
@@ -138,41 +145,49 @@ nav {
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(1) {
   left: 5px;
   top: 7px;
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(2) {
   left: calc(50% - 5px);
   top: 7px;
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(3) {
   left: -50%;
   opacity: 0;
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(4) {
   left: 100%;
   opacity: 0;
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(5) {
   left: 5px;
   top: 29px;
+  background-color: #9999ff
 }
 
 #nav-icon.open span:nth-child(6) {
   left: calc(50% - 5px);
   top: 29px;
+  background-color: #9999ff
 }
 
 i.material-icons{
   position: relative;
   top: 5px;
+  background-color: #9999ff;
 }
 
 @media screen and (max-height: 450px) {
@@ -182,6 +197,7 @@ i.material-icons{
 
   .sidenav a {
     font-size: 18px;
+    color:#9999ff
   
   }
 
