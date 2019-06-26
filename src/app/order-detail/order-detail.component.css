@@ -50,3 +50,7 @@ a:hover {
 .totalCost {
   margin-top: 0;
 }
+
+.full {
+  height: 89vh;  
+}

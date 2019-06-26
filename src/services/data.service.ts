@@ -94,11 +94,14 @@ export class DataService {
   }
 
   //Orders
-  addOrder(partyId: string) {
+  addOrder(partyId: string, seatId: number, table: number) {
     let data = {
-      partyId: partyId
+      partyId: partyId,
+      seatId: seatId,
+      table: table
     }
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').add(data);
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update({seats: seatId+1});
   }
 
   addOrderItem(orderId: string, Item: {}) {
@@ -128,6 +131,11 @@ export class DataService {
   getOrderItems(orderId: string): Observable<any> {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
     .collection('orders').doc(orderId).collection('items').valueChanges()
+  }
+
+  getOrder(orderId: string): Observable<any> {
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+    .collection('orders').doc(orderId).valueChanges()
   }
 
 
