@@ -28,6 +28,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { MenuModalComponent } from './menu-modal/menu-modal.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatIconModule} from '@angular/material/icon';
     AddCategoryComponent,
     CatFilter,
     MenuEditComponent,
-    NavbarComponent
+    NavbarComponent,
+    MenuModalComponent
   ],
   imports: [
     BrowserModule,

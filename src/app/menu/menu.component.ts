@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/services/data.service';
 import { Observable } from 'rxjs';
-import { all } from 'q';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-menu',
@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   menuCategories: any;
   categoryArray;
   selectedCategory = 'drink';
+  modalItem;
 
   constructor(private db: DataService) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
@@ -20,10 +21,21 @@ export class MenuComponent implements OnInit {
     this.menuCategories.subscribe(item => this.categoryArray = item.Names);
   }
 
-  // addItem will take menu item information, and send it to the service with an order # via route
-  addItem(item) {
+  stageItem(item) {
     this.db.addOrderItem('testOrder', item);
     console.log(item);
+  }
+
+  showIngredients(item) {
+    console.log(item);
+    this.modalItem = item.ingredients;
+    const modal = document.getElementById('menu-modal');
+    modal.style.display = 'block';
+  }
+
+  closeModal() {
+    console.log('something');
+    
   }
 
   selectCategory(cat) {
