@@ -29,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuModalComponent } from './menu-modal/menu-modal.component';
+import { StatusBarComponent } from './status-bar/status-bar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MenuModalComponent } from './menu-modal/menu-modal.component';
     CatFilter,
     MenuEditComponent,
     NavbarComponent,
-    MenuModalComponent
+    MenuModalComponent,
+    StatusBarComponent
   ],
   imports: [
     BrowserModule,

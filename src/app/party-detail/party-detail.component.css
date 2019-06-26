@@ -16,8 +16,6 @@ a:hover {
 }
 
 .box {
-  display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   border-bottom: 1px solid gray;
 }

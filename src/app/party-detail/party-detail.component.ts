@@ -13,13 +13,14 @@ export class PartyDetailComponent implements OnInit {
   seats;
   seatsArray;
   orders: Observable<any>;
+  statusItem = 'test string';
+
   constructor(private router: Router, private route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit() {
     this.partyId = this.route.snapshot.paramMap.get('partyId');
     this.getSeatNum();
     this.getAllOrders();
-    
   }
 
   goToMenu() {
@@ -31,7 +32,7 @@ export class PartyDetailComponent implements OnInit {
   }
 
   getSeatNum() {
-    this.dataService.getParty(this.partyId).subscribe(party => this.seats = party); 
+    this.dataService.getParty(this.partyId).subscribe(party => this.seats = party);
   }
 
   addPartyIdToOrder() {

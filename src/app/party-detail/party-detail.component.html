@@ -2,9 +2,10 @@
 <div class="allParties" *ngFor="let order of orders; let i = index;">
   <div class="box" (click)="goToOrderDetails(order.id)">
     <h2>Seat {{i+1}}</h2>
+    <app-status-bar [order]='order'></app-status-bar>
   </div>
-      <div class="totalContainer">
-        <p>Total:</p>
-        <p class="totalCost">$14.99</p>
+  <div class="totalContainer">
+    <p>Total:</p>
+    <p class="totalCost">$14.99</p>
   </div>
 </div>

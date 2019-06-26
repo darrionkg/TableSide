@@ -1,0 +1,21 @@
+.status-box {
+  margin: 0;
+  height: 10px;
+  border: 1px solid black;
+}
+
+.status-badge {
+  width: 100%;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
