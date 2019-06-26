@@ -9,27 +9,42 @@ import { Observable, merge } from 'rxjs';
 })
 
 export class DataService {
-  constructor(private database: AngularFirestore) { }
+  DataStream;
+
+  constructor(private database: AngularFirestore) {
+    this.DataStream = new Observable( observer => {
+
+    });
+  }
+
+  getData(location: string) {
+
+  }
+
+
+
+
+
 
   //Parties
   addParty()
   addParty(table: number)
   addParty(table: number, seats: number)
   addParty(table?: number, seats?: number) {
-    if(seats === null) {
-      seats = 0;
+    if(!seats) {
+      seats = 1;
     }
     if (!table) { table = 0 }
     let data = {
       table: table,
       seats: seats
-    }
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').add(data);
+    }    
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').add(data);
   }
 
   getParties() {
-    //return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges()
+    //return this.database.collection('l').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').snapshotChanges()
       .pipe(map((ref) => {
         return ref.map(a => {
           let data: Object = a.payload.doc.data();
@@ -42,16 +57,16 @@ export class DataService {
 
   addSeat(partyId) {
     let data;
-    let sub = this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc(partyId).valueChanges().subscribe(ref => 
+    let sub = this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).valueChanges().subscribe(ref => 
       {data = ref;
       data.seats += 1;
-      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc(partyId).update(data);
+      this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update(data);
       sub.unsubscribe();
     });
   }
 
   getParty(partyId) {
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').doc(partyId).valueChanges();
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).valueChanges();
   }
 
   getMenuCatagories() {
@@ -62,11 +77,11 @@ export class DataService {
   getMenuItems(categories: string): Observable<any>
   getMenuItems(categories?: string): Observable<any> {
     if (!categories || categories === "All") {
-      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').valueChanges();
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').valueChanges();
 
     } else {
-      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
-        .collection('Menu', ref => ref.where('category', '==', categories)).valueChanges()
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+        .collection('menu', ref => ref.where('category', '==', categories)).valueChanges()
     }
   }
 
@@ -76,11 +91,11 @@ export class DataService {
     let data = {
       partyId: partyId
     }
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').add(data);
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').add(data);
   }
 
   addOrderItem(orderId: string, Item: {}) {
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders')
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders')
     .doc(orderId).collection('Items').add(Item);
   }
 
@@ -88,11 +103,11 @@ export class DataService {
   getOrders(partyId: string): Observable<any>
   getOrders(partyId?: string): Observable<any> {
     if (!partyId || partyId === "All") {
-      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Orders').valueChanges()      
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').valueChanges()      
     } else {
 
-      return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
-      .collection('Orders', ref => ref.where('partyId', '==', partyId)).snapshotChanges()
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+      .collection('orders', ref => ref.where('partyId', '==', partyId)).snapshotChanges()
       .pipe(map((ref) => {
         return ref.map(a => {
           let data: Object = a.payload.doc.data();
@@ -104,8 +119,8 @@ export class DataService {
   }
 
   getOrderItems(orderId: string): Observable<any> {    
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr')
-    .collection('Orders').doc(orderId).collection('Items').valueChanges()
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+    .collection('orders').doc(orderId).collection('items').valueChanges()
   }
 
 
@@ -114,35 +129,35 @@ export class DataService {
 
   //Categories
   deleteCategory(name) {
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').get().subscribe(ref => {
       let categories = ref.data();
       let newArray = [];
-      for (let i = 0; i < categories['Names'].length; i++) {
-        const element = categories['Names'][i];
+      for (let i = 0; i < categories['names'].length; i++) {
+        const element = categories['names'][i];
         if (element != name) {
           newArray.push(element);
         }
       }
-      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
-        Names: newArray
+      this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').set({
+        names: newArray
       })
     })
   }
 
   addCategory(name) {
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').get().subscribe(ref => {
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').get().subscribe(ref => {
       let categories = ref.data();
 
-      let newArray = categories['Names'].slice();
+      let newArray = categories['names'].slice();
       newArray.push(name);
-      this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
-        Names: newArray
+      this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').set({
+        names: newArray
       })
     })
   }
 
   updateCategories(newArray: string[]) {
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').set({
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').set({
       Names: newArray
     })
   }
@@ -160,6 +175,6 @@ export class DataService {
       name: name,
       price: price
     }
-    this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('Menu').add(data);
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').add(data);
   }
 }
