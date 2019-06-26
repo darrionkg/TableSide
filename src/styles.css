@@ -16,6 +16,10 @@ body {
   flex-direction: column;
 }
 
+.fb-wrap {
+  flex-wrap: wrap;
+}
+
 .display-none {
   display: none;
 }

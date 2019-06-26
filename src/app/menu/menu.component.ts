@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/services/data.service';
 import { Observable } from 'rxjs';
 import { MatIconModule} from '@angular/material/icon';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -15,18 +15,35 @@ export class MenuComponent implements OnInit {
   categoryArray;
   selectedCategory = 'drink';
   modalItem;
+  stagedArray: any[] = [];
+  notMenu = true;
 
-  constructor(private db: DataService, private activeRoute: ActivatedRoute) {
+  constructor(private db: DataService, private activeRoute: ActivatedRoute, private router: Router) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
     this.menuCategories = this.db.getMenuCatagories();
     this.menuCategories.subscribe(item => this.categoryArray = item.Names);
   }
 
   // http://localhost:4200/parties/7xgfzI5M0yO7ATPf5Q0k/orders/JbL2CHFZM0HeGeMNZVlh/menu
-  stageItem(item) {
+  addStagedItems() {
     const orderId = this.activeRoute.snapshot.paramMap.get('orderId');
-    this.db.addOrderItem(orderId, item);
-    console.log(orderId);
+    this.stagedArray.forEach(item => this.db.addOrderItem(orderId, item));
+    this.stagedArray = [];
+  }
+
+  stageItem(item) {
+    console.log(item.id)
+    this.stagedArray.push(item);
+    console.log(this.stagedArray);
+  }
+
+  unStageItem(item) {
+    for(let i=0; i < this.stagedArray.length; i++){
+      if(this.stagedArray[i].name === item.name) {
+        this.stagedArray.splice(i,1);
+        break;
+      }
+    }
   }
 
   showIngredients(item) {
@@ -46,7 +63,13 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  checkURL(): void {
+    if(this.router.url === '/menu')
+      this.notMenu = false;
+  }
+
   ngOnInit() {
+    this.checkURL();
   }
 
 }

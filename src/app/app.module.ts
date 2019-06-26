@@ -30,6 +30,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MenuModalComponent } from './menu-modal/menu-modal.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
+import { MenuStageViewComponent } from './menu-stage-view/menu-stage-view.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
     MenuEditComponent,
     NavbarComponent,
     MenuModalComponent,
-    StatusBarComponent
+    StatusBarComponent,
+    MenuStageViewComponent
   ],
   imports: [
     BrowserModule,

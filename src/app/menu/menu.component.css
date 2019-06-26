@@ -83,3 +83,24 @@ a:hover {
 span i {
   vertical-align: middle
 }
+
+.menu-staged-view {
+  position: absolute;
+  bottom: 0;
+  min-height: 40px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu-staged-view  div {
+  padding-left: 20px;
+}
+
+.add-staged {
+  box-shadow: 0px 2px 8px black;
+  float: right;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
