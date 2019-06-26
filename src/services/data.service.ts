@@ -9,7 +9,14 @@ import { Observable, merge } from 'rxjs';
 })
 
 export class DataService {
-  constructor(private database: AngularFirestore) { }
+  static DataStream; 
+  static times:number = 0;
+  constructor(private database: AngularFirestore) {
+    console.log(`Started !{DataService.times} times`);
+    
+    DataService.DataStream = new Observable( observer => {
+    });
+  }
 
   //Parties
   addParty()

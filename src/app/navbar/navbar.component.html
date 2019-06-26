@@ -1,11 +1,16 @@
-<ul class="nav-bar">
-    <li class="nav-bar-item"><a href="#home">Table</a></li>    
-    <mat-icon (click)="toggleMenu()" class="hamburger-menu">menu</mat-icon>
-</ul>
+<nav>
+  <div id="nav-icon" (click)="toggleMenu()" [ngClass]="menuOpen ? 'open' : '' ">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>  
+</nav>
 
-<div *ngIf="menuOpen" class="navMenu">
-<ul class="nav-menu">
-    <li><a href="#home">Tables</a></li>
-    <li><a href="#home">Menu</a></li>
-</ul>
+<div id="mySidenav" class="sidenav">
+  <a (click)="toggleMenu(false)" routerLink="">Parties</a>
+  <a (click)="toggleMenu(false)" routerLink="menu">Menu</a>
+  <a (click)="toggleMenu(false)" routerLink="dashboard">Dashboard</a>
 </div>
