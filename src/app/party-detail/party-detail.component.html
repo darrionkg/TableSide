@@ -2,7 +2,7 @@
 <div class="allParties" *ngFor="let order of orders">
   <div class="box fb-col" (click)="goToOrderDetails(order.id)">
     <p>{{order.id}}</p>
-    <app-status-bar></app-status-bar>
+    <app-status-bar [order]='order'></app-status-bar>
   </div>
   <div class="totalContainer">
     <p>Total:</p>

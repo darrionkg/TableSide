@@ -9,10 +9,10 @@ export class StatusBarComponent implements OnInit {
 @Input() order: any;
 
   constructor() {
-    console.log(this.order);
-   }
-
+  }
+  
   ngOnInit() {
+    console.log(this.order);
   }
 
 }
