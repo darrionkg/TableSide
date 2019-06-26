@@ -19,7 +19,7 @@ export class NavbarComponent {
       this.menuOpen = value;
     }
     if (this.menuOpen) {
-      document.getElementById("mySidenav").style.height = "400px";
+      document.getElementById("mySidenav").style.height = "100%";
     } else {
       document.getElementById("mySidenav").style.height = "0"; 
     }
