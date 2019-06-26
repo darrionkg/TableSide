@@ -1,12 +1,12 @@
 <div class="add-category">    
   
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let cat of categories.Names" cdkDrag>{{cat}}
+    <div class="example-box" *ngFor="let cat of categories.Names" cdkDrag>{{cat | titlecase}}
       <button mat-button (click)="catDelete(cat)">Delete</button>
     </div>
   </div>
   <mat-form-field class="example-full-width">
     <input matInput [(ngModel)]="catName" type="text" placeholder="Category Name">
   </mat-form-field>  
-  <button id="addCategory" (click)="addCategory(catName)">Add Category</button>
+  <button mat-stroked-button id="addCategory" (click)="addCategory(catName)">Add Category</button>
 </div>

@@ -1,18 +1,35 @@
-<h2>{{selectedCategory}}</h2>
-
+<h2>{{selectedCategory | titlecase}}</h2>
+<hr>
 <div *ngIf="menuItems.length > 0">
     <div *ngFor="let item of menuItems | catFilter:selectedCategory">
         <h4>{{item.name}}</h4>
         <h4>{{item.ingredients}}</h4>
-        <h4>{{item.price}}</h4>       
+        <h4>${{item.price}}</h4>
     </div>
 </div>
 
 <div>
+
     <form>
-        <input type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}" placeholder="ingredients seperated by a ','" #ref>
-        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name" #refer>
-        <input type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price" #reference>
-        <button (click)="addToMenu(ingredients, name, price)" (click)="reference.value=''" (click)="refer.value=''" (click)="ref.value=''">Add to Menu</button>
+        <mat-form-field class="add-item-form">
+            <input matInput type="text" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}"
+                placeholder="ingredients separated by spaces" #ref>
+        </mat-form-field>
+        <mat-form-field class="add-item-form">
+            <input matInput type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="name"
+                #refer>
+        </mat-form-field>
+        <mat-form-field class="add-item-form">
+            <input matInput type="number" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="price"
+                #reference>
+        </mat-form-field>
+        <button mat-stroked-button (click)="addToMenu(ingredients, name, price)" (click)="reference.value=''"
+            (click)="refer.value=''" (click)="ref.value=''">Create new</button>
     </form>
 </div>
+
+
+<!-- <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="catName" type="text" placeholder="Category Name">
+</mat-form-field>
+<button mat-stroked-button id="addCategory" (click)="addCategory(catName)">Add Category</button> -->

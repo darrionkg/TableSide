@@ -171,7 +171,7 @@ export class DataService {
     }
     let data = {
       category: category,
-      ingredientString: ingredientArray,
+      ingredients: ingredientArray,
       name: name,
       price: price
     }
