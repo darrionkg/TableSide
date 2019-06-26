@@ -72,15 +72,12 @@ export class AppModule { }
 
 //Change status in data service
 
-//Menu- redirect on stage
-
 //swipe on menu change cat
 
 
 //parties status effects
 //scrollabe div patries window
 //make dropdown for order page
-//add table when making new party
 
 //order
 //Staged  yellow

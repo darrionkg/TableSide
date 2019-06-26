@@ -3,6 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { mapTo, combineAll, count, map } from 'rxjs/operators';
 import { Observable, merge } from 'rxjs';
+import { FirebaseDatabase } from '@angular/fire';
+import { firestore } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +34,10 @@ export class DataService {
     if (!table) { table = 0 }
     let data = {
       table: table,
-      seats: seats
-    }    
+      seats: seats,
+      timeSeated: firestore.FieldValue.serverTimestamp(),
+      status: 'new'
+    }
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').add(data);
   }
 

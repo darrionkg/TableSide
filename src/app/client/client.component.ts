@@ -17,7 +17,15 @@ export class ClientComponent {
   parties: any[] = [];
   constructor(private dataService: DataService, private db: AngularFirestore, private router: Router, private nav: NavUpdateService) {
     dataService.getParties().subscribe(ref => {
-      this.parties = ref
+      console.log(ref);
+      this.parties = ref.sort( (a, b) => {
+        if (a.hasOwnProperty('timeSeated') && a['timeSeated'] != null && 
+        b.hasOwnProperty('timeSeated') && b['timeSeated'] != null) {
+          return b['timeSeated']['seconds'] - a['timeSeated']['seconds'];          
+        } else {
+          return 0;
+        }
+      })
       nav.updateHeading('', `${ref.length}`, '', '');
     });
   }
