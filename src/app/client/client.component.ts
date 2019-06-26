@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NavUpdateService } from '../navbar/nav-update.service';
 
 // import { Location } from '@angular/common';
 
@@ -14,8 +15,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ClientComponent {
   parties: any[] = [];
-  constructor(private dataService: DataService, private db: AngularFirestore, private router: Router) {
-    dataService.getParties().subscribe(ref => this.parties = ref);
+  constructor(private dataService: DataService, private db: AngularFirestore, private router: Router, private nav: NavUpdateService) {
+    dataService.getParties().subscribe(ref => {
+      this.parties = ref
+      nav.updateHeading('', `${ref.length}`, '', '');
+    });
   }
 
   addParty() {

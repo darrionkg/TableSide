@@ -8,8 +8,17 @@ import { NavUpdateService } from './nav-update.service';
 })
 export class NavbarComponent {
   menuOpen: boolean = false;
+  headingString: string = '';
+  headingLink: string = '';
+  titleString: string = '';
+  titleLink: string = '';
   constructor(private nav: NavUpdateService) {
-    //nav.heading
+    nav.liveUpdate().subscribe( ref => {      
+      this.titleString = ref['titleString'];
+      this.titleLink = ref['titleLink'];
+      this.headingString = ref['headingString'];
+      this.headingLink = ref['headingLink'];      
+    })
   }
 
   toggleMenu(value) {
@@ -24,10 +33,4 @@ export class NavbarComponent {
       document.getElementById("mySidenav").style.height = "0"; 
     }
   }
-
-  updateHeading(event) {
-    console.log(event);    
-  }
-
-
 }
