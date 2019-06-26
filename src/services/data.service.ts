@@ -55,7 +55,7 @@ export class DataService {
   }
 
   getMenuCatagories() {
-    return this.database.collection('Location').doc('aeMFrRDSm3HJvnb2pBrr').collection('MenuCategories').doc('Categories').valueChanges();
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').valueChanges();
   }
 
   getMenuItems(): Observable<any>
