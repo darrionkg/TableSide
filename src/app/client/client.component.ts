@@ -33,10 +33,7 @@ export class ClientComponent {
       if (this.parties && this.parties.length > 0) {
         for (let i = 0; i < this.parties.length; i++) {          
           this.parties[i].waitTime = 
-          Math.floor((Date.now() * .001 - this.parties[i]['timeSeated']['seconds']) / 60) + ':' +
-          (Math.floor(Date.now() * .001 - this.parties[i]['timeSeated']['seconds']) % 60 > 10 ?
-          Math.floor(Date.now() * .001 - this.parties[i]['timeSeated']['seconds']) % 60 : 
-          '0' + Math.floor(Date.now() * .001 - this.parties[i]['timeSeated']['seconds']) % 60);
+          Math.floor((Date.now() * .001 - this.parties[i]['timeSeated']['seconds']) / 60)
         }
       }
     }, 1000);
