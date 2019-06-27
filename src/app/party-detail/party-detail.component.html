@@ -2,12 +2,13 @@
 <div class="orders-container" >
   <div class="order-box"*ngFor="let order of orders">
     <div class="order-status-container fb-row" (click)="goToOrderDetails(order.id)">
-      <p class="party-seat-button">Seat {{order.seatId}}</p>
+      <p class="party-seat-button">
+        Seat {{order.seatId}}
+        <app-status-bar [order]='order'></app-status-bar>
+      </p>
+      
       <app-status-slider [order]='order'></app-status-slider>
-    </div>
-    <div class="slider-container">
-      <app-status-bar [order]='order'></app-status-bar>
-    </div>
+    </div>    
   </div>
 </div>
 
