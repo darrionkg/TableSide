@@ -4,7 +4,7 @@
 body {
   margin: 0;
   width: 100%;
-  background-color: #DDDDDD;
+  background-color: #fafafa;
 }
 
 .fb-row {
@@ -26,5 +26,5 @@ body {
 }
 
 .full {
-  height: 100vh;  
+  height: 100vh;
 }
