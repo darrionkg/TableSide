@@ -55,6 +55,8 @@ export class PartyDetailComponent implements OnInit {
   }
 
   sendOrdersByCategory(status, category: string) {
-    this.dataService.updateOrderStatusbyCat(this.partyId, status, category);
+    if(status != 'expo') {
+      this.dataService.updateOrderStatusbyCat(this.partyId, status, category);
+    }
   }
 }

@@ -66,6 +66,13 @@ export class DataService {
   //   });
   // }
 
+  updateTable(party, number) {
+    let data = {
+      table: number
+    }
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(party.id).update(data);
+  }
+
   getParty(partyId) {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).valueChanges();
   }

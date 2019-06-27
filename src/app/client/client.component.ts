@@ -16,6 +16,8 @@ import { NavUpdateService } from '../navbar/nav-update.service';
 export class ClientComponent implements OnInit, OnDestroy {
   parties: any[] = [];
   updateTimer;
+  modalItem;
+  tableToUpdate;
   constructor(private dataService: DataService, private db: AngularFirestore, private router: Router, private nav: NavUpdateService) {
     dataService.getParties().subscribe(ref => {
       this.parties = ref.sort((a, b) => {
@@ -63,5 +65,13 @@ export class ClientComponent implements OnInit, OnDestroy {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
     return `hsl(${hash}, 90%, 30%)`
+  }
+
+  assignTable(table) {
+    this.modalItem = this.parties;
+    this.tableToUpdate = table;
+    const modal = document.getElementById('table-modal');
+    modal.style.display = 'flex';
+    console.log(table)
   }
 }

@@ -33,6 +33,7 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
 import { StatusSliderComponent } from './status-slider/status-slider.component';
 import { ClickStopPropagation } from './click-stop-propagation.directive';
 import { CookTicketComponent } from './cook-ticket/cook-ticket.component';
+import { TableModalComponent } from './table-modal/table-modal.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CookTicketComponent } from './cook-ticket/cook-ticket.component';
     StatusBarComponent,
     StatusSliderComponent,
     ClickStopPropagation,
-    CookTicketComponent
+    CookTicketComponent,
+    TableModalComponent
   ],
   imports: [
     BrowserModule,
