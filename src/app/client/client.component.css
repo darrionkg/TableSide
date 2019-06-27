@@ -27,10 +27,12 @@ h4, h5 {
 
 .party {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;  
+  justify-content: space-between;
   align-items: center;
   background-color: transparent;
   z-index: 1; 
+  padding: 0px 20px;
 }
 
 .div-shadow {
@@ -40,7 +42,7 @@ h4, h5 {
 }
 
 #new {
-  background-color: salmon;
+  background-color: #fa80726b;
 }
 
 #staged {
