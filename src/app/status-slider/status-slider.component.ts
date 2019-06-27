@@ -9,11 +9,10 @@ import { DataService } from 'src/services/data.service';
 })
 export class StatusSliderComponent implements OnInit {
 @Input() order;
-
-  items: any[];
-  itemsStaged: any[];
-  itemsSent;
-  itemsExpo;
+  
+  itemsStaged = [];
+  itemsSent = [];
+  itemsExpo = [];
 
   constructor(private dataService: DataService) { }
 
@@ -21,25 +20,9 @@ export class StatusSliderComponent implements OnInit {
     this.dataService.getOrderItems(this.order.id).subscribe(item => {
       this.itemsStaged = item.filter(ref => ref.status === 'staged');
       this.itemsSent = item.filter(ref => ref.status === 'sent');
-      this.itemsExpo = item.filter(ref => ref.status === 'expo');
+      this.itemsExpo = item.filter(ref => ref.status === 'expo');      
     });
   }
-
-  sortStatus() {
-    this.items.forEach(item => console.log(item));
-  }
-
-  isStaged(item): boolean {
-    return (item.status === 'staged');
-  }
-
-  isSent(item): boolean {
-    return (item.status === 'sent');
-  }
-  isExpo(item): boolean {
-    return (item.status === 'expo');
-  }
-
 }
 
 // {
