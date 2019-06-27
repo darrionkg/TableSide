@@ -1,5 +1,8 @@
 
 <div class="scrolling-wrapper-flexbox status-slider-container">
+    <div class="add-item-button fb-col">
+        <i class="material-icons" (click)="goToOrderDetails(order.id)">add_circle_outline</i>
+    </div>
   <div class='status-slider-staged fb-row status-card' *ngIf="itemsStaged.length > 0">
     <p *ngFor="let item of itemsStaged">{{item.name}}</p>
   </div>

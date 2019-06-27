@@ -23,18 +23,22 @@ a:hover {
 
 .order-status-container {
   box-shadow: 0px 2px 5px 2px;
+  height: 80px;
 }
 
-.component-head {
+.orders-head {
   width: 100%;
-  height: 50px;
-  background-color: #C1C1C1;
   margin: 0;
 }
 
-.component-head h2 {
-  margin: 0;
+.orders-head h2 {
+  padding: 10px;
   text-align: center;
+  margin: 0;
+}
+
+.orders-head i {
+  vertical-align: top;
 }
 
 .totalContainer {

@@ -152,7 +152,7 @@ export class DataService {
           itemList.forEach(item => {
             this.database.doc(item.ref).update({'status': status})
           })
-        })        
+        })
       });
     });
   }

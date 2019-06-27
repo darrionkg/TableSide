@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+/* font-family: 'Corben', cursive; */
+/* font-family: 'Play', sans-serif; */
+
 body {
   margin: 0;
   width: 100%;

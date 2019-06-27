@@ -13,7 +13,7 @@ export class NavUpdateService {
   });
   constructor() { }
 
-  updateHeading(headingString, headingLink, titleString, titleLink) 
+  updateHeading(headingString, headingLink, titleString, titleLink)
   {
     this.heading.next({
       headingLink: headingLink,

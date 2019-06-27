@@ -30,10 +30,15 @@
   height: 100%;
 }
 
+.add-item-button i{
+  padding: 25px;
+}
+
 .status-card {
     flex: 0 0 auto;
-    max-width: 200px;
     flex-wrap: wrap;
+    box-shadow: -1px 0px 3px 0px black;
+    align-items: center;
 }
 
 .scrolling-wrapper {

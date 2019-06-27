@@ -1,7 +1,7 @@
 <div class="full" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)">
-<div class="component-head">
+<!-- <div class="component-head">
   <h2>Menu Component Head</h2>
-</div>
+</div> -->
 <nav class="category-nav">
   <ul class="box fb-row">
     <a *ngFor="let cat of categoryArray; let i = index" [ngClass]="selectedCategory === i ? 'activeCat' : ''" (click)="selectCategory(i)">{{cat}}</a>
@@ -15,7 +15,9 @@
           <p><span *ngIf="item.ingredients" class="menu-info-trigger"  (click)="showIngredients(item)"><i class="material-icons">info</i></span>{{item.name}}</p>
           <p class="menu-price">${{item.price}}</p>
         </div>
-        <button mat-button class="item-Button" (click)='stageItem(item)' *ngIf="notMenu">Stage</button>
+        <button mat-button class="item-Button" (click)='stageItem(item)' *ngIf="notMenu"><i class="material-icons">
+            add
+            </i></button>
       </div>
     </div>
     <div class="menu-staged-view fb-row" *ngIf="notMenu">
