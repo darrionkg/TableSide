@@ -45,7 +45,7 @@
 
 .activeCat {
   background-color: #ffe6e6;
-  box-shadow: 0px 2px 4px black;
+  box-shadow: inset 0px 2px 4px black;
 }
 
 .notActiveCat {
