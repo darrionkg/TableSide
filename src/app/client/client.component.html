@@ -4,10 +4,8 @@
 </div>
 
 <div *ngFor="let party of parties" [class]='"card party div-shadow " + party.status'>
-  <div class="table-img-container" *ngIf="party.table === 0">
-    <img class="table-img" (click)='assignTable(5)' src='./../../assets/img/table.png'>
+  <img class="table-img" (click)='assignTable(party)' src='./../../assets/img/table.png'>
     <!-- <p>Table#</p> -->
-  </div>
   <div class="fb-row card align-center" routerLink="/parties/{{party.id}}">
     <div *ngIf="party.table > 0">Table: {{party.table}}</div>
     <span *ngIf="party.table === 0" class="font-size-12"
@@ -15,3 +13,4 @@
     <div *ngIf="party.waitTime && party.status === 'new'">{{party.waitTime}}m</div>
   </div>
 </div>
+<app-table-modal [modalItem]="modalItem" [tableToUpdate]="tableToUpdate"></app-table-modal>

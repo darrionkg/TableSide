@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from './../../services/data.service';
+import { PartyDetailComponent } from '../party-detail/party-detail.component';
 
 @Component({
   selector: 'app-table-modal',
@@ -7,11 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableModalComponent {
   @Input() modalItem;
-  constructor() { }
+  @Input() tableToUpdate;
+  constructor(private dataService: DataService) { }
 
   closeModal(event) {
     const modal = document.getElementById('table-modal');
     modal.style.display = 'none';
     if (event){ event.srcEvent.stopPropagation(); }
+  }
+
+  updateTable(newTableNumber) {
+    this.dataService.updateTable(this.tableToUpdate, newTableNumber)
   }
 }

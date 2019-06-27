@@ -1,11 +1,13 @@
-<div click-stop-propagation id="table-modal" class="modal" (click)="closeModal()"
+<div click-stop-propagation id="table-modal" class="modal"
  (swipeleft)="closeModal($event)" (swiperight)="closeModal($event)">
   <div class="modal-content">
-      <ul>
+      <!-- <ul>
           <li *ngFor="let party of parties">Table # {{party.table}}</li>
-        </ul>
+        </ul> -->
         <i (click)="closeModal()"class="material-icons">clear</i>
+        <label for="tableNumber">Table Number:</label>
+        <input id="tableNumber" [(ngModel)]="tableNumber" type="text">
+        <button class="apply-button" (click)="[closeModal(), updateTable(tableNumber)]">Apply</button>
   </div>
 </div>
 
-<app-menu-modal [modalItem]="modalItem"></app-menu-modal>
