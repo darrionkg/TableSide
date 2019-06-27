@@ -83,12 +83,41 @@ app-status-slider {
 
 .party-footer {
   width: 100%;
-  position: absolute;
+  position: fixed;
+  border-top: 1px solid black;
+  background-color: white;
   bottom: 0;
   justify-content: space-evenly;
+  padding-top: 5px;
 }
 
 .test-background {
   background-color: #ca821e;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23ac6f1a' fill-opacity='0.08'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.08'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.clear-bottom {
+  width: 100%;
+  height: 8vh;
+}
+
+.button-pop-up {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-weight: 500;
+}
+
+.btn-color1 {
+  background-color: #03A9F4;
+}
+
+.btn-color2 {
+  background-color: #4CAF50;
+}
+
+.mat-menu-content:not(:empty) {
+  padding-top: 0;
+  padding-bottom: 0;
 }

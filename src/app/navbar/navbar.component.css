@@ -14,7 +14,7 @@
   z-index: 1;
   top: 70px;
   left: 0;
-  background-color:#fafafa;
+  background-color:#dddddd;
   overflow-x: hidden;
   transition: 0.2s;
   /* padding-top: 60px; */
@@ -42,7 +42,7 @@ nav {
   left: 0;
   width: 100vw;
   display: flex;
-  background-color: #ff9a9a;
+  background-color: #776969;
   z-index: 3;
   height: 70px;
   overflow-x: hidden;
