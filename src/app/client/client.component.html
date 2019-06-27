@@ -3,16 +3,11 @@
   <div style="font-size: 40px;">&#x2b;</div>
 </div>
 
-<div class="card party div-shadow" *ngFor="let party of parties" [id]=party.status routerLink="/parties/{{party.id}}">  
+<div class="card party div-shadow" *ngFor="let party of parties" [id]=party.status routerLink="/parties/{{party.id}}">
   <div *ngIf="party.waitTime && party.status === 'new'">{{party.waitTime}}</div>
-  
   <div *ngIf="party.table > 0">Table: {{party.table}}</div>
   <div *ngIf="party.table === 0">Party Id: <span
       [ngStyle]="{'color': idToColor(party.id)}">{{party.id.slice(0, 3)}}</span>
   </div>
   <div *ngIf="party.size > 0"><small>Size {{party.size}}</small></div>
-
-  <!-- <div class='status-new' *ngIf="party.status === 'new'"></div>
-  <div class='status-staged' *ngIf="party.status === 'staged'"></div>
-  <div class='status-complete' *ngIf="party.status === 'complete'"></div> -->
 </div>

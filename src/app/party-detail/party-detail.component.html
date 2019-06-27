@@ -1,6 +1,4 @@
-<div class= "orders-head" (click)="addSeat()"><h2>Add Seat <i class="material-icons">
-    add
-    </i></h2></div>
+<div class= "orders-head" (click)="addSeat()"><h2>Add Seat <i class="material-icons">add</i></h2></div>
 <div class="orders-container" >
   <div class="order-box"*ngFor="let order of orders">
     <div class="order-status-container fb-row">
@@ -8,7 +6,6 @@
         <p>Seat {{order.seatId}}</p>
         <i class="material-icons">filter_list</i>
       </div>
-
       <app-status-slider [order]='order' [partyId]='partyId'></app-status-slider>
     </div>
     <div class="slider-container">
@@ -16,7 +13,6 @@
     </div>
   </div>
 </div>
-
 <div class="party-footer fb-row">
   <button mat-button class="send-button" (click)="sendOrders('sent')">Send Orders</button>
   <button mat-button class="expo-button" (click)="sendOrders('expo')">Expo Orders</button>

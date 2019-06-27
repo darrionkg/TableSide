@@ -38,15 +38,11 @@ export class PartyDetailComponent implements OnInit {
     this.dataService.getParty(this.partyId).subscribe(party => this.seats = party);
   }
 
-  // addPartyIdToOrder() {
-  //   this.dataService.addOrder(this.partyId);
-  // }
-
   getAllOrders() {
     this.dataService.getOrders(this.partyId).subscribe(order => {
       this.orders = order.sort((a, b) => {
         return a.seatId - b.seatId;
-      })
+      });
     });
   }
 
@@ -55,7 +51,7 @@ export class PartyDetailComponent implements OnInit {
   }
 
   sendOrders(status) {
-    this.dataService.updateOrderStatus(this.partyId, status)
+    this.dataService.updateOrderStatus(this.partyId, status);
   }
 
 }

@@ -43,8 +43,3 @@
 .scrolling-wrapper {
   -webkit-overflow-scrolling: touch;
 }
-
-/* ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; 
-} */

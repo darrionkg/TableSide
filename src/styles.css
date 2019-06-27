@@ -32,12 +32,3 @@ body {
 .full {
   height: 100vh;
 }
-
-/* .scrolling-wrapper {
-  -webkit-overflow-scrolling: touch;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; 
-} */

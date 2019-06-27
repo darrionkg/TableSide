@@ -28,37 +28,33 @@ export class OrderDetailComponent {
         this.partyId = this.route.snapshot.paramMap.get('partyId');
         this.subscribeToOrder();
       }
-    })
-
-
+    });
   }
 
   subscribeToOrder() {
     this.dataService.getOrderItems(this.orderId).subscribe(ref => {
       this.allItems = ref;
-    })    
+    });
     this.dataService.getOrder(this.orderId).subscribe(ref => {
       let table: string = '';
       if (ref.table === 0) {
         table = `Party: ${ref.partyId.slice(0, 3)}`
       } else {
         table = `Table: ${ref.table}`
-      }      
+      }
       this.nav.updateHeading(table, `parties/${ref.partyId}`, `Seat ${ref.seatId}`, '');
     });
-    
     this.dataService.getOrders(this.partyId).subscribe(order => {
       this.allOrders = order.sort((a, b) => {
         return a.seatId - b.seatId;
-      })
+      });
     });
-
   }
 
 
   idToColor(str: string) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
     return `hsl(${hash}, 90%, 30%)`

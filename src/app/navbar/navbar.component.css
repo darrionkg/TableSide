@@ -12,7 +12,7 @@
   width: 100vw;
   position: fixed;
   z-index: 1;
-  top: 70px;  
+  top: 70px;
   left: 0;
   background-color:#fafafa;
   overflow-x: hidden;
@@ -56,10 +56,10 @@ nav h4 {
 
 .nav-item {
   width: 60px;
-  height: 60px; 
-  line-height: 60px; 
+  height: 60px;
+  line-height: 60px;
   font-size: 40px;
-  margin-left: auto;  
+  margin-left: auto;
   text-align: center;
   vertical-align: middle;
   color: black;
@@ -201,8 +201,5 @@ i.material-icons{
   .sidenav a {
     font-size: 18px;
     color:#e6e6ff
-  
   }
-
-  
 }
