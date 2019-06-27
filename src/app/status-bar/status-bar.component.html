@@ -1,3 +1,5 @@
 <div class="status-box">
-  <div *ngFor="let item of items" [class]=item.status></div>
+    <div *ngFor="let item of itemsStaged" [class]=item.status></div>
+    <div *ngFor="let item of itemsSent" [class]=item.status></div>
+    <div *ngFor="let item of itemsExpo" [class]=item.status></div>
 </div>
