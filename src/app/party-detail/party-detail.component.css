@@ -52,3 +52,10 @@ a:hover {
 .totalCost {
   margin-top: 0;
 }
+
+.party-seat-button {
+  width: 60px;
+  height: 100%;
+  margin-top: 0px;
+  box-shadow: 4px 10px 13px 2px black;
+}

@@ -1,0 +1,42 @@
+.status-slider-container {
+  font-size: 14px;
+}
+
+.status-slider-container div{
+  height: 100%;
+  width: 100%;
+}
+
+
+.status-slider-container div p {
+  margin: 5px;
+}
+
+
+.status-slider-staged {
+  background-color: #ff09;
+}
+
+.status-slider-sent {
+  background-color: #0068ff82;
+}
+
+.status-slider-expo {
+  background-color: #0080006e;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  height: 100%;
+}
+
+.card {
+    flex: 0 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
