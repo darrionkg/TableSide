@@ -1,0 +1,11 @@
+<div click-stop-propagation id="table-modal" class="modal" (click)="closeModal()"
+ (swipeleft)="closeModal($event)" (swiperight)="closeModal($event)">
+  <div class="modal-content">
+      <ul>
+          <li *ngFor="let party of parties">Table # {{party.table}}</li>
+        </ul>
+        <i (click)="closeModal()"class="material-icons">clear</i>
+  </div>
+</div>
+
+<app-menu-modal [modalItem]="modalItem"></app-menu-modal>

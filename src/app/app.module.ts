@@ -32,6 +32,7 @@ import { MenuModalComponent } from './menu-modal/menu-modal.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
 import { StatusSliderComponent } from './status-slider/status-slider.component';
 import { ClickStopPropagation } from './click-stop-propagation.directive';
+import { TableModalComponent } from './table-modal/table-modal.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ClickStopPropagation } from './click-stop-propagation.directive';
     StatusBarComponent,
     StatusSliderComponent,
     ClickStopPropagation,
+    TableModalComponent,
   ],
   imports: [
     BrowserModule,

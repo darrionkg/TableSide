@@ -3,11 +3,15 @@
   <div style="font-size: 40px;">&#x2b;</div>
 </div>
 
-<div *ngFor="let party of parties" [class]='"card party div-shadow " + party.status' routerLink="/parties/{{party.id}}">
-  <div *ngIf="party.waitTime && party.status === 'new'">{{party.waitTime}}</div>
-  <div *ngIf="party.table > 0">Table: {{party.table}}</div>
-  <div *ngIf="party.table === 0">Party Id: <span
-      [ngStyle]="{'color': idToColor(party.id)}">{{party.id.slice(0, 3)}}</span>
+<div *ngFor="let party of parties" [class]='"card party div-shadow " + party.status'>
+  <div class="table-img-container" *ngIf="party.table === 0">
+    <img class="table-img" (click)='assignTable(5)' src='./../../assets/img/table.png'>
+    <!-- <p>Table#</p> -->
   </div>
-  <div *ngIf="party.size > 0"><small>Size {{party.size}}</small></div>
+  <div class="fb-row card align-center" routerLink="/parties/{{party.id}}">
+    <div *ngIf="party.table > 0">Table: {{party.table}}</div>
+    <span *ngIf="party.table === 0" class="font-size-12"
+    [ngStyle]="{'color': idToColor(party.id)}">Party ID: {{party.id.slice(0, 3)}}</span>
+    <div *ngIf="party.waitTime && party.status === 'new'">{{party.waitTime}}m</div>
+  </div>
 </div>

@@ -46,3 +46,34 @@ h4, h5 {
 .expo {
   background-color: 67afaf;
 }
+
+.table-img {
+  height: 90px;
+  width: 100px;
+  /* margin-top: 40px; */
+}
+
+.font-size-12 {
+  font-size: 15px;
+  line-height: 100px;
+}
+
+.align-center {
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.table-img-container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table-img-container p {
+  font-size: 15px;
+  text-align: center;
+}
