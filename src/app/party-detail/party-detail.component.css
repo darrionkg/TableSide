@@ -60,6 +60,11 @@ a:hover {
   text-align: center;
 }
 
+.party-seat-button p {
+  margin: 0;
+  padding: 5px;
+}
+
 app-status-slider {
   width: 100%;
 }

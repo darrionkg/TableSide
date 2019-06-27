@@ -35,11 +35,24 @@
 }
 
 .status-card {
-    flex: 0 0 auto;
-    flex-wrap: wrap;
-    box-shadow: -1px 0px 3px 0px black;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 5px 1px grey;
+  margin: 5px 10px;
+  border-radius: 15px;
+  align-content: center;
+  border: 1px solid grey;
 }
 
 .scrolling-wrapper {
   -webkit-overflow-scrolling: touch;
+}
+
+.status-card-text {
+  padding: 0 5px;
+}
+
+
+app-status-slider {
+  width: calc(100% - 75px);
 }

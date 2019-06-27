@@ -3,7 +3,13 @@
   <div class="add-item-button fb-col">
       <i class="material-icons" (click)="goToOrderDetails(order.id)">add_circle_outline</i>
   </div>
-  <div class='status-slider-staged fb-row status-card' *ngIf="itemsStaged.length > 0">
+    <p class="status-card status-slider-staged fb-row" *ngFor="let item of itemsStaged"><span class="status-card-text">{{item.name}}</span></p>
+    <p class="status-card status-slider-sent fb-row" *ngFor="let item of itemsSent"><span class="status-card-text">{{item.name}}</span></p>
+    <p class="status-card status-slider-expo fb-row" *ngFor="let item of itemsExpo"><span class="status-card-text">{{item.name}}</span></p>
+</div>
+
+
+<!-- <div class='status-slider-staged fb-row status-card' *ngIf="itemsStaged.length > 0">
     <p *ngFor="let item of itemsStaged">{{item.name}}</p>
   </div>
   <div class='status-slider-sent fb-row status-card' *ngIf="itemsSent.length > 0">
@@ -11,5 +17,4 @@
   </div>
   <div class='status-slider-expo fb-row status-card' *ngIf="itemsExpo.length > 0">
       <p *ngFor="let item of itemsExpo">{{item.name}}</p>
-  </div>
-</div>
+  </div> -->
