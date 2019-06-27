@@ -112,6 +112,7 @@ export class DataService {
   }
 
   addOrderItem(orderId: string, Item: {}) {
+    delete Item['id'];
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders')
     .doc(orderId).collection('items').add(Item);
   }
@@ -120,9 +121,16 @@ export class DataService {
   getOrders(partyId: string): Observable<any>;
   getOrders(partyId?: string): Observable<any> {
     if (!partyId || partyId === 'All') {
-      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').valueChanges();
+      return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+      .collection('orders').snapshotChanges()
+      .pipe(map((ref) => {
+        return ref.map(a => {
+          const data: Object = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data};
+        });
+      }));
     } else {
-
       return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
       .collection('orders', ref => ref.where('partyId', '==', partyId)).snapshotChanges()
       .pipe(map((ref) => {
@@ -135,9 +143,16 @@ export class DataService {
     }
   }
 
-  getOrderItems(orderId: string): Observable<any> {
+  getOrderItems(orderId: string): Observable<any> {  
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
-    .collection('orders').doc(orderId).collection('items').valueChanges();
+      .collection('orders').doc(orderId).collection('items').snapshotChanges()
+      .pipe(map((ref) => {
+        return ref.map(a => {
+          const data: Object = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data};
+        });
+      }));
   }
 
   getOrder(orderId: string): Observable<any> {
