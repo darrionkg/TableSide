@@ -1,142 +1,144 @@
 .box {
-  justify-content: space-evenly;
-  border-bottom: 1px solid gray;
-  
+    justify-content: space-evenly;
+    border-bottom: 1px solid gray;
 }
 
 .menu-price {
-  float: right;
-  margin-right: 20px;
+    float: right;
+    margin-right: 20px;
 }
 
 .menu-item {
-  justify-content: right;
-  border-bottom: 1px solid gray;
+    justify-content: right;
+    border-bottom: 1px solid gray;
 }
 
 .menu-item p {
-  margin-left: 5%;
-  height: 30px;
+    margin-left: 5%;
+    height: 30px;
 }
 
 .category-nav .box {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.category-nav .box a{
-  list-style-type: none;
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
+.category-nav .box a {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .component-head {
-  width: 100%;
-  height: 50px;
-  margin: 0;
-  background-color:#afafaf;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    background-color: #afafaf;
 }
 
 .component-head h2 {
-  margin: 0;
-  text-align: center;
-  color: black;
+    margin: 0;
+    text-align: center;
+    color: black;
 }
 
 .activeCat {
-  background-color: #ffe6e6;
-  box-shadow: inset 0px 2px 4px black;
+    background-color: #ffe6e6;
+    box-shadow: inset 0px 2px 4px black;
 }
 
 .notActiveCat {
-  background-color: white;
+    background-color: white;
 }
 
 .fb-space-between {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
 .wide {
-  width: 100%;
+    width: 100%;
 }
 
 .fb-space-evenly {
-  justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 .fb-wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
-.menu-info-trigger  {
-  margin-right: 20px;
+.menu-info-trigger {
+    margin-right: 20px;
 }
 
 .menu-ingredient-window ul li {
-  padding: 0 10px;
-  list-style: none;
+    padding: 0 10px;
+    list-style: none;
 }
 
 span i {
-  vertical-align: middle
+    vertical-align: middle
 }
 
 .menu-staged-view {
-  position: absolute;
-  bottom: 0;
-  min-height: 40px;
-  justify-content: space-between;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    min-height: 40px;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .add-staged {
-  background-color: #2196F3;
-  color: white;
-  box-shadow: 0px 2px 8px black;
-  float: right;
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+    background-color: #2196F3;
+    color: white;
+    box-shadow: 0px 2px 8px black;
+    float: right;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .item-Button {
-  background-color: #4CAF50;
-  color: white;
-  margin: 3px;
+    background-color: #4CAF50;
+    color: white;
+    margin: 3px;
 }
 
-.status-box {  
-  display: grid;
-  padding: 2px;
-  margin-left: 0;
-  width: 215px;
-  height: 141px;
-  border-top: 1px solid black;
-  border-right:1px solid black; 
-  
-  
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows: repeat(6, 50px);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
-  background-color: #fafafa;
-  overflow-y: auto;
-  box-shadow: 8px 2px 14px grey;
-  }
+.status-box {
+    display: grid;
+    padding: 2px;
+    margin-left: 0;
+    width: 215px;
+    height: 141px;
+    /* border-top: 1px solid black; */
+    /* border-right: 1px solid black; */
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(6, 50px);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    background-color: #fafafa;
+    overflow-y: auto;
+    /* box-shadow: 8px 2px 14px grey; */
+}
 
 .status-item {
-  display: flex;
-  grid-column-end: span 1;
-  grid-row-end: span 1;
-  width: 100%;
-  height: 100%;
-  background-color: #2196F3;
-  text-align: center;
-  border-radius: 15px;
-  align-items: center;
-  justify-content: center; 
-  margin-top: auto;
-  box-shadow: 3px 3px 2px grey;
+    display: flex;
+    grid-column-end: span 1;
+    grid-row-end: span 1;
+    width: 100%;
+    height: 100%;
+    background-color: #B0BEC5;
+    text-align: center;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    box-shadow: 3px 3px 2px grey;
+}
+
+.full {
+    height: calc(100vh - 216px);
 }
