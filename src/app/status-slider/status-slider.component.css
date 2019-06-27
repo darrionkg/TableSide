@@ -1,53 +1,56 @@
 .status-slider-container {
-  font-size: 14px;
+    font-size: 1em;
 }
 
-.status-slider-container div{
-  height: 100%;
-  width: 100%;
+.status-slider-container div {
+    height: 100%;
+    width: 100%;
 }
 
 .status-slider-container div p {
-  margin: 5px;
+    margin: 5px;
 }
 
 .status-slider-staged {
-  background-color: #ff09;
+    background-color: #ff09;
 }
 
 .status-slider-sent {
-  background-color: #0068ff82;
+    background-color: #0068ff82;
 }
 
 .status-slider-expo {
-  background-color: #0080006e;
+    background-color: #0080006e;
 }
 
 .scrolling-wrapper-flexbox {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    height: 100%;
 }
 
-.add-item-button i{
-  padding: 25px;
+.add-item-button i {
+    padding: 25px;
 }
 
 .status-card {
-  flex: 0 0 auto;
-  flex-wrap: wrap;
-  box-shadow: 0px 0px 5px 1px grey;
-  margin: 5px 10px;
-  border-radius: 15px;
-  align-content: center;
-  border: 1px solid grey;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 5px 1px grey;
+    margin: 5px 10px;
+    border-radius: 15px;
+    align-content: center;
+    border: 1px solid grey;
+    max-width: 100px;
+    height: 68px;
 }
 
 .scrolling-wrapper {
-  -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 .status-card-text {
-  padding: 0 5px;
+    padding: 0 5px;
+    text-align: center;
 }

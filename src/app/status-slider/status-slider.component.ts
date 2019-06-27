@@ -33,10 +33,9 @@ export class StatusSliderComponent implements OnInit {
     this.router.navigate(['parties/' + this.partyId+ '/orders/' + id + '/menu']);
   }
 
-  updateStatus(itemId, status) {
-    console.log(itemId);
+  updateStatus(item, status) {
+    console.log(this.order.id);
     
-    
-    // this.dataService.updateItemStatus(orderId, itemId, status);
+    this.dataService.updateItemStatus(this.order.id, item.id, status);  
   }
 }
