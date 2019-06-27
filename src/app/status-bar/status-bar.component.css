@@ -10,7 +10,13 @@
   grid-column-gap: 1px;
   grid-row-gap: 1px;
   background-color: #cecece8a;
-}
+  }
+  
+  /* .status-box {
+  height: 10px;
+  border: 1px solid black;
+  margin: 3px 0;
+} */
 
 .status-badge {
   width: 100%;

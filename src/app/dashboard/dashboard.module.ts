@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AddCategoryComponent, 
+    AddCategoryComponent,
     DashboardComponent
   ],
   imports: [

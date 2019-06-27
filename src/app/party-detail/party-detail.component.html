@@ -1,17 +1,19 @@
-<div class= "component-head box" (click)="addSeat()"><h2>Add Order + </h2></div>
+<div class= "orders-head" (click)="addSeat()"><h2>Add Seat <i class="material-icons">add</i></h2></div>
 <div class="orders-container" >
   <div class="order-box"*ngFor="let order of orders">
-    <div class="order-status-container fb-row" (click)="goToOrderDetails(order.id)">
-      <p class="party-seat-button">
-        Seat {{order.seatId}}
-        <app-status-bar [order]='order'></app-status-bar>
-      </p>
-      
-      <app-status-slider [order]='order'></app-status-slider>
-    </div>    
+    <div class="order-status-container fb-row">
+      <div class =" party-seat-button fb-col">
+        <p>Seat {{order.seatId}}</p>
+        <i class="material-icons">filter_list</i>
+      </div>
+      <app-status-slider [order]='order' [partyId]='partyId'></app-status-slider>
+    </div>
+    <div class="slider-container">
+      <app-status-bar [order]='order'></app-status-bar>
+    </div>
   </div>
 </div>
-
-
-<button mat-button class="send-button" (click)="sendOrders('sent')">Send Orders</button>
-<button mat-button class="expo-button" (click)="sendOrders('expo')">Expo Orders</button>
+<div class="party-footer fb-row">
+  <button mat-button class="send-button" (click)="sendOrders('sent')">Send Orders</button>
+  <button mat-button class="expo-button" (click)="sendOrders('expo')">Expo Orders</button>
+</div>

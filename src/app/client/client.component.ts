@@ -25,13 +25,11 @@ export class ClientComponent implements OnInit, OnDestroy {
         } else {
           return 0;
         }
-      })
-      nav.updateHeading('', `${ref.length}`, '', '');
+      });
+      nav.updateHeading('', `${ref.length}`, 'Table Side', '');
       this.updateWaitTime();
     });
   }
-
-
   updateWaitTime() {
     if (this.parties && this.parties.length > 0) {
       for (let i = 0; i < this.parties.length; i++) {
@@ -60,8 +58,8 @@ export class ClientComponent implements OnInit, OnDestroy {
   }
 
   idToColor(str: string) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
     return `hsl(${hash}, 90%, 30%)`

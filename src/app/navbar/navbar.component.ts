@@ -13,11 +13,11 @@ export class NavbarComponent {
   titleString: string = '';
   titleLink: string = '';
   constructor(private nav: NavUpdateService) {
-    nav.liveUpdate().subscribe( ref => {      
+    nav.liveUpdate().subscribe( ref => {
       this.titleString = ref['titleString'];
       this.titleLink = ref['titleLink'];
       this.headingString = ref['headingString'];
-      this.headingLink = ref['headingLink'];      
+      this.headingLink = ref['headingLink'];
     })
   }
 
@@ -28,9 +28,9 @@ export class NavbarComponent {
       this.menuOpen = value;
     }
     if (this.menuOpen) {
-      document.getElementById("mySidenav").style.height = "100%";
+      document.getElementById('mySidenav').style.height = '100%';
     } else {
-      document.getElementById("mySidenav").style.height = "0"; 
+      document.getElementById('mySidenav').style.height = '0';
     }
   }
 }

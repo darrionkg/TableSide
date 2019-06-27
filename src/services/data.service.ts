@@ -23,38 +23,38 @@ export class DataService {
 
   }
 
-  //Parties
-  addParty()
-  addParty(table: number)
-  addParty(table: number, seats: number)
+  // Parties
+  addParty();
+  addParty(table: number);
+  addParty(table: number, seats: number);
   addParty(table?: number, seats?: number) {
-    if(!seats) {
+    if (!seats) {
       seats = 1;
     }
-    if (!table) { table = 0 }
-    let data = {
-      table: table,
-      seats: seats,
+    if (!table) { table = 0; }
+    const data = {
+      table,
+      seats,
       timeSeated: firestore.FieldValue.serverTimestamp(),
       status: 'new'
-    }
+    };
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').add(data);
   }
 
   getParties() {
-    //return this.database.collection('l').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
+    // return this.database.collection('l').doc('aeMFrRDSm3HJvnb2pBrr').collection('Parties').snapshotChanges();
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').snapshotChanges()
       .pipe(map((ref) => {
         return ref.map(a => {
-          let data: Object = a.payload.doc.data();
-          let id = a.payload.doc.id;
+          const data: Object = a.payload.doc.data();
+          const id = a.payload.doc.id;
           return { id, ...data };
-        })
+        });
       }));
 
   }
 
-  // addSeat(partyId) {    
+  // addSeat(partyId) {
   //   let sub = this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).get().subscribe(ref => {
   //     let data;
   //     data = ref;
@@ -63,7 +63,7 @@ export class DataService {
   //     // this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update(data);
   //     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).set(data);
   //     sub.unsubscribe();
-  //   });    
+  //   });
   // }
 
   getParty(partyId) {
@@ -74,40 +74,41 @@ export class DataService {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').valueChanges();
   }
 
-  getMenuItems(): Observable<any>
-  getMenuItems(categories: string): Observable<any>
+  getMenuItems(): Observable<any>;
+  getMenuItems(categories: string): Observable<any>;
   getMenuItems(categories?: string): Observable<any> {
-    if (!categories || categories === "All") {
+    if (!categories || categories === 'All') {
       return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').snapshotChanges()
       .pipe(map((ref) => {
         return ref.map(a => {
-          let data: Object = a.payload.doc.data();
-          let id = a.payload.doc.id;
+          const data: Object = a.payload.doc.data();
+          const id = a.payload.doc.id;
           return { id, ...data};
-        })
-      })); 
+        });
+      }));
     } else {
       return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
         .collection('menu', ref => ref.where('category', '==', categories)).snapshotChanges()
         .pipe(map((ref) => {
           return ref.map(a => {
-            let data: Object = a.payload.doc.data();
-            let id = a.payload.doc.id;
+            const data: Object = a.payload.doc.data();
+            const id = a.payload.doc.id;
             return { id, ...data};
-          })
-        })); 
+          });
+        }));
     }
   }
 
-  //Orders
+  // Orders
   addOrder(partyId: string, seatId: number, table: number) {
-    let data = {
-      partyId: partyId,
-      seatId: seatId,
-      table: table
-    }
+    const data = {
+      partyId,
+      seatId,
+      table
+    };
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').add(data);
-    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update({seats: seatId+1, status: 'greeted'});
+// tslint:disable-next-line: max-line-length
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update({seats: seatId + 1, status: 'greeted'});
   }
 
   addOrderItem(orderId: string, Item: {}) {
@@ -115,10 +116,10 @@ export class DataService {
     .doc(orderId).collection('items').add(Item);
   }
 
-  getOrders(): Observable<any>
-  getOrders(partyId: string): Observable<any>
+  getOrders(): Observable<any>;
+  getOrders(partyId: string): Observable<any>;
   getOrders(partyId?: string): Observable<any> {
-    if (!partyId || partyId === "All") {
+    if (!partyId || partyId === 'All') {
       return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').valueChanges();
     } else {
 
@@ -126,8 +127,8 @@ export class DataService {
       .collection('orders', ref => ref.where('partyId', '==', partyId)).snapshotChanges()
       .pipe(map((ref) => {
         return ref.map(a => {
-          let data: Object = a.payload.doc.data();
-          let id = a.payload.doc.id;
+          const data: Object = a.payload.doc.data();
+          const id = a.payload.doc.id;
           return { id, ...data};
         });
       }));
@@ -136,12 +137,12 @@ export class DataService {
 
   getOrderItems(orderId: string): Observable<any> {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
-    .collection('orders').doc(orderId).collection('items').valueChanges()
+    .collection('orders').doc(orderId).collection('items').valueChanges();
   }
 
   getOrder(orderId: string): Observable<any> {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
-    .collection('orders').doc(orderId).valueChanges()
+    .collection('orders').doc(orderId).valueChanges();
   }
 
   updateOrderStatus(partyId: string, status: string) {
@@ -150,63 +151,60 @@ export class DataService {
       ref.forEach(e => {
         this.database.doc(e.ref).collection('items').get().subscribe( itemList => {
           itemList.forEach(item => {
-            this.database.doc(item.ref).update({'status': status})
-          })
-        })        
+            this.database.doc(item.ref).update({status: status});
+          });
+        });
       });
     });
   }
 
-
-
-
-  //Categories
+  // Categories
   deleteCategory(name) {
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').get().subscribe(ref => {
-      let categories = ref.data();
-      let newArray = [];
-      for (let i = 0; i < categories['names'].length; i++) {
-        const element = categories['names'][i];
+      const categories = ref.data();
+      const newArray = [];
+      for (let i = 0; i < categories.names.length; i++) {
+        const element = categories.names[i];
         if (element != name) {
           newArray.push(element);
         }
       }
       this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').set({
         names: newArray
-      })
-    })
+      });
+    });
   }
 
   addCategory(name) {
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').get().subscribe(ref => {
-      let categories = ref.data();
+      const categories = ref.data();
 
-      let newArray = categories['names'].slice();
+      const newArray = categories.names.slice();
       newArray.push(name);
       this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').set({
         names: newArray
-      })
-    })
+      });
+    });
   }
 
   updateCategories(newArray: string[]) {
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').set({
       Names: newArray
-    })
+    });
   }
-  //Add and Delete from Menu
+  // Add and Delete from Menu
   addToMenu(category, ingredientString: string, name, price) {
     let ingredientArray: string[] = [];
     if (!ingredientString.includes(' ')) {
       ingredientArray = [ingredientString];
     } else {
-      ingredientArray = ingredientString.split(" ")
+      ingredientArray = ingredientString.split(' ');
     }
     const data = {
-      category: category,
+      category,
       ingredients: ingredientArray,
-      name: name,
-      price: price,
+      name,
+      price,
       status: 'staged'
     };
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').add(data);

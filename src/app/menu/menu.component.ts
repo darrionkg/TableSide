@@ -25,8 +25,8 @@ export class MenuComponent implements OnInit {
     this.menuCategories = this.db.getMenuCatagories();
     this.menuCategories.subscribe(item => this.categoryArray = item.Names);
 
-    let partyId = this.activeRoute.snapshot.paramMap.get('partyId');
-    if (partyId) { 
+    const partyId = this.activeRoute.snapshot.paramMap.get('partyId');
+    if (partyId) {
       header.updateHeading('home', '', partyId.slice(0, 3), 'parties/' + partyId);
     } else {
       header.updateHeading('home', '', 'Menu', '');
@@ -42,15 +42,15 @@ export class MenuComponent implements OnInit {
   }
 
   stageItem(item) {
-    console.log(item.id)
+    console.log(item.id);
     this.stagedArray.push(item);
     console.log(this.stagedArray);
   }
 
   unStageItem(item) {
-    for(let i=0; i < this.stagedArray.length; i++){
-      if(this.stagedArray[i].name === item.name) {
-        this.stagedArray.splice(i,1);
+    for(let i = 0; i < this.stagedArray.length; i++) {
+      if (this.stagedArray[i].name === item.name) {
+        this.stagedArray.splice(i, 1);
         break;
       }
     }
@@ -65,13 +65,14 @@ export class MenuComponent implements OnInit {
 
 
   checkURL(): void {
-    if(this.router.url === '/menu')
+    if (this.router.url === '/menu') {
       this.notMenu = false;
+    }
   }
 
   returnToParty() {
     this.partyId = this.activeRoute.snapshot.paramMap.get('partyId');
-    this.router.navigate(['parties/' + this.partyId])
+    this.router.navigate(['parties/' + this.partyId]);
   }
 
   ngOnInit() {
