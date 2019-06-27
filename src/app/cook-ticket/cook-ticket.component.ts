@@ -24,8 +24,9 @@ export class CookTicketComponent {
   }
 
 
-  expoItem(itemId) {
-    //this.database.updateItemStatus( , )
-
+  expoItem(orderId, itemId) {
+    this.database.updateItemStatus(orderId, itemId, 'expo');
+    // console.log(orderId, itemId);
+    
   }
 }

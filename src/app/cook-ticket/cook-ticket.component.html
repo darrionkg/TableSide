@@ -3,7 +3,7 @@
         <h4>{{order.key}}</h4>
         <div *ngFor="let ticket of order.value" class="item">
             {{ticket.name}}
-            <button mat-button class="send-button" (click)="expoItem(ticket.id)">Expo</button>
+            <button mat-button class="send-button" (click)="expoItem(order.key, ticket.id)">Expo</button>
         </div>
     </div>
 </div>
