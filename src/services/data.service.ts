@@ -188,18 +188,18 @@ export class DataService {
     } else {
       ingredientArray = ingredientString.split(" ")
     }
-    let data = {
+    const data = {
       category: category,
       ingredients: ingredientArray,
       name: name,
-      price: price
-    }
+      price: price,
+      status: 'staged'
+    };
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menu').add(data);
   }
 
-  deleteFromMenu(itemId: string) {    
+  deleteFromMenu(itemId: string) {
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
-    .collection('menu').doc(itemId).delete();          
+    .collection('menu').doc(itemId).delete();
   }
-  
 }

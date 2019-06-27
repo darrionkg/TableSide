@@ -1,10 +1,12 @@
 <div class= "component-head box" (click)="addSeat()"><h2>Add Order + </h2></div>
-<div class="allParties" *ngFor="let order of orders">
-  <div class="party-box fb-row" (click)="goToOrderDetails(order.id)">
-    <p class="party-seat-button">Seat {{order.seatId}}</p>
-   <app-status-slider [order]='order'></app-status-slider>
-  </div>
-  <div class="slider-container">
-    <app-status-bar [order]='order'></app-status-bar>
+<div class="orders-container" >
+  <div class="order-box"*ngFor="let order of orders">
+    <div class="order-status-container fb-row" (click)="goToOrderDetails(order.id)">
+      <p class="party-seat-button">Seat {{order.seatId}}</p>
+      <app-status-slider [order]='order'></app-status-slider>
+    </div>
+    <div class="slider-container">
+      <app-status-bar [order]='order'></app-status-bar>
+    </div>
   </div>
 </div>

@@ -1,12 +1,12 @@
 
 <div class="scrolling-wrapper-flexbox status-slider-container">
-  <div class='status-slider-staged fb-row card' *ngIf="itemsStaged.length > 0">
+  <div class='status-slider-staged fb-row status-card' *ngIf="itemsStaged.length > 0">
     <p *ngFor="let item of itemsStaged">{{item.name}}</p>
   </div>
-  <div class='status-slider-sent fb-row card' *ngIf="itemsSent.length > 0">
+  <div class='status-slider-sent fb-row status-card' *ngIf="itemsSent.length > 0">
       <p *ngFor="let item of itemsSent">{{item.name}}</p>
   </div>
-  <div class='status-slider-expo fb-row card' *ngIf="itemsExpo.length > 0">
+  <div class='status-slider-expo fb-row status-card' *ngIf="itemsExpo.length > 0">
       <p *ngFor="let item of itemsExpo">{{item.name}}</p>
   </div>
 </div>
