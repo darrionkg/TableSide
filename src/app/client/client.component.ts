@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from './../../services/data.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,30 +13,42 @@ import { NavUpdateService } from '../navbar/nav-update.service';
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.css']
 })
-export class ClientComponent {
+export class ClientComponent implements OnInit, OnDestroy {
   parties: any[] = [];
+  updateTimer;
   constructor(private dataService: DataService, private db: AngularFirestore, private router: Router, private nav: NavUpdateService) {
     dataService.getParties().subscribe(ref => {
-      console.log(ref);
-      this.parties = ref.sort( (a, b) => {
-        if (a.hasOwnProperty('timeSeated') && a['timeSeated'] != null && 
-        b.hasOwnProperty('timeSeated') && b['timeSeated'] != null) {
-          return b['timeSeated']['seconds'] - a['timeSeated']['seconds'];          
+      this.parties = ref.sort((a, b) => {
+        if (a.hasOwnProperty('timeSeated') && a['timeSeated'] != null &&
+          b.hasOwnProperty('timeSeated') && b['timeSeated'] != null) {
+          return b['timeSeated']['seconds'] - a['timeSeated']['seconds'];
         } else {
           return 0;
         }
       })
       nav.updateHeading('', `${ref.length}`, '', '');
+      this.updateWaitTime();
     });
+  }
 
-    setInterval(ref => {
-      if (this.parties && this.parties.length > 0) {
-        for (let i = 0; i < this.parties.length; i++) {          
-          this.parties[i].waitTime = 
+
+  updateWaitTime() {
+    if (this.parties && this.parties.length > 0) {
+      for (let i = 0; i < this.parties.length; i++) {
+        this.parties[i].waitTime =
           Math.floor((Date.now() * .001 - this.parties[i]['timeSeated']['seconds']) / 60)
-        }
       }
-    }, 1000);
+    }
+  }
+
+  ngOnInit() {
+    this.updateTimer = setInterval(ref => {
+      this.updateWaitTime();
+    }, 60000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.updateTimer);
   }
 
   addParty() {
@@ -47,11 +59,11 @@ export class ClientComponent {
     this.router.navigate(['parties', party.id]);
   }
 
-  idToColor(str:string) {
+  idToColor(str: string) {
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
-    return `hsl(${hash}, 90%, 30%)`    
-  }  
+    return `hsl(${hash}, 90%, 30%)`
+  }
 }

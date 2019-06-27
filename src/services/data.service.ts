@@ -54,15 +54,17 @@ export class DataService {
 
   }
 
-  addSeat(partyId) {
-    let data;
-    let sub = this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).valueChanges().subscribe(ref => 
-      {data = ref;
-      data.seats += 1;
-      this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update(data);
-      sub.unsubscribe();
-    });
-  }
+  // addSeat(partyId) {    
+  //   let sub = this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).get().subscribe(ref => {
+  //     let data;
+  //     data = ref;
+  //     data.seats += 1;
+  //     data.status = 'greeted';
+  //     // this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update(data);
+  //     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).set(data);
+  //     sub.unsubscribe();
+  //   });    
+  // }
 
   getParty(partyId) {
     return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).valueChanges();
@@ -105,7 +107,7 @@ export class DataService {
       table: table
     }
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('orders').add(data);
-    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update({seats: seatId+1});
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('parties').doc(partyId).update({seats: seatId+1, status: 'greeted'});
   }
 
   addOrderItem(orderId: string, Item: {}) {
@@ -142,6 +144,18 @@ export class DataService {
     .collection('orders').doc(orderId).valueChanges()
   }
 
+  updateOrderStatus(partyId: string, status: string) {
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+    .collection('orders', ref => ref.where('partyId', '==', partyId)).get().subscribe( ref => {
+      ref.forEach(e => {
+        this.database.doc(e.ref).collection('items').get().subscribe( itemList => {
+          itemList.forEach(item => {
+            this.database.doc(item.ref).update({'status': status})
+          })
+        })        
+      });
+    });
+  }
 
 
 

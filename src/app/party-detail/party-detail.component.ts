@@ -52,7 +52,11 @@ export class PartyDetailComponent implements OnInit {
   }
 
   goToOrderDetails(id) {
-
     this.router.navigate(['parties/' + this.partyId+ '/orders/' + id + '/menu']);
   }
+
+  sendOrders(status) {
+    this.dataService.updateOrderStatus(this.partyId, status)
+  }
+
 }

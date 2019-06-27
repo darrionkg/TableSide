@@ -3,9 +3,8 @@
   <div style="font-size: 40px;">&#x2b;</div>
 </div>
 
-<div class="card party div-shadow" *ngFor="let party of parties" [id]=party.status routerLink="/parties/{{party.id}}">
-  <div *ngIf="!party.waitTime">00:00</div>
-  <div *ngIf="party.waitTime">{{party.waitTime}}</div>
+<div class="card party div-shadow" *ngFor="let party of parties" [id]=party.status routerLink="/parties/{{party.id}}">  
+  <div *ngIf="party.waitTime && party.status === 'new'">{{party.waitTime}}</div>
   
   <div *ngIf="party.table > 0">Table: {{party.table}}</div>
   <div *ngIf="party.table === 0">Party Id: <span

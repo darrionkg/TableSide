@@ -59,3 +59,16 @@ a:hover {
   margin-top: 0px;
   box-shadow: 4px 10px 13px 2px black;
 }
+
+
+.send-button {
+  background-color: #03A9F4;
+  color: white;
+  margin: 3px;
+}
+
+.expo-button {
+  background-color: #4CAF50;
+  color: white;
+  margin: 3px;
+}

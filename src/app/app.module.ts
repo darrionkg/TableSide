@@ -31,6 +31,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MenuModalComponent } from './menu-modal/menu-modal.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
 import { StatusSliderComponent } from './status-slider/status-slider.component';
+import { ClickStopPropagation } from './click-stop-propagation.directive';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { StatusSliderComponent } from './status-slider/status-slider.component';
     MenuModalComponent,
     StatusBarComponent,
     StatusSliderComponent,
+    ClickStopPropagation,
   ],
   imports: [
     BrowserModule,

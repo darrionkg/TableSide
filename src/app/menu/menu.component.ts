@@ -26,9 +26,11 @@ export class MenuComponent implements OnInit {
     this.menuCategories.subscribe(item => this.categoryArray = item.Names);
 
     let partyId = this.activeRoute.snapshot.paramMap.get('partyId');
-
-    header.updateHeading('home', '', partyId.slice(0, 3), 'parties/' + partyId);
-
+    if (partyId) { 
+      header.updateHeading('home', '', partyId.slice(0, 3), 'parties/' + partyId);
+    } else {
+      header.updateHeading('home', '', 'Menu', '');
+    }
   }
 
   // http://localhost:4200/parties/7xgfzI5M0yO7ATPf5Q0k/orders/JbL2CHFZM0HeGeMNZVlh/menu
@@ -58,7 +60,7 @@ export class MenuComponent implements OnInit {
     console.log(item);
     this.modalItem = item.ingredients;
     const modal = document.getElementById('menu-modal');
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
   }
 
 
