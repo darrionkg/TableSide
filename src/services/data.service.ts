@@ -158,6 +158,24 @@ export class DataService {
     });
   }
 
+  updateOrderStatusbyCat(partyId: string, status: string, category: string) {
+    this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+    .collection('orders', ref => ref.where('partyId', '==', partyId)).get().subscribe( ref => {
+      ref.forEach(e => {
+        this.database.doc(e.ref).collection('items', ref => ref.where('category', '==', category)).get().subscribe( itemList => {
+          itemList.forEach(item => {
+            this.database.doc(item.ref).update({status: status});
+          });
+        });
+      });
+    });
+  }
+
+  updateItemStatus(orderId: string, itemId: string, status) {
+    return this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr')
+    .collection('orders').doc(orderId).collection('items').doc(itemId).update({status: status});
+  }
+
   // Categories
   deleteCategory(name) {
     this.database.collection('location').doc('aeMFrRDSm3HJvnb2pBrr').collection('menuCategories').doc('categories').get().subscribe(ref => {
