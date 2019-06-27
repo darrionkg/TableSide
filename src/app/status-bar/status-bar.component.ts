@@ -17,5 +17,4 @@ export class StatusBarComponent implements OnInit {
   ngOnInit() {
     this.dataService.getOrderItems(this.order.id).subscribe(item => this.items = item);
   }
-
 }

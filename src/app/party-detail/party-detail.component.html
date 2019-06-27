@@ -1,12 +1,10 @@
 <div class= "component-head box" (click)="addSeat()"><h2>Add Order + </h2></div>
 <div class="allParties" *ngFor="let order of orders">
-  <div class="party-box" (click)="goToOrderDetails(order.id)">
-    <p>Seat {{order.seatId}}</p>
+  <div class="party-box fb-row" (click)="goToOrderDetails(order.id)">
+    <p class="party-seat-button">Seat {{order.seatId}}</p>
+   <app-status-slider [order]='order'></app-status-slider>
   </div>
-  <app-status-bar [order]='order'></app-status-bar>
+  <div class="slider-container">
+    <app-status-bar [order]='order'></app-status-bar>
+  </div>
 </div>
-
-<!-- <div class="totalContainer">
-  <p>Total:</p>
-  <p class="totalCost">$14.99</p>
-</div> -->

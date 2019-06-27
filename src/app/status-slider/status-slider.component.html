@@ -1,0 +1,12 @@
+
+<div class="scrolling-wrapper-flexbox status-slider-container">
+  <div class='status-slider-staged fb-row card' *ngIf="itemsStaged > 0">
+    <p *ngFor="let item of itemsStaged">{{item.name}}</p>
+  </div>
+  <div class='status-slider-sent fb-row card' *ngIf="itemsSent > 0">
+      <p *ngFor="let item of itemsSent">{{item.name}}</p>
+  </div>
+  <div class='status-slider-expo fb-row card' *ngIf="itemsExpo > 0">
+      <p *ngFor="let item of itemsExpo">{{item.name}}</p>
+  </div>
+</div>
