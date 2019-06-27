@@ -51,8 +51,3 @@
 .status-card-text {
   padding: 0 5px;
 }
-
-
-app-status-slider {
-  width: calc(100% - 75px);
-}

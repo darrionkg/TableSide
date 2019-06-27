@@ -15,18 +15,28 @@ export class StatusSliderComponent implements OnInit {
   itemsStaged = [];
   itemsSent = [];
   itemsExpo = [];
-
+  orderId;
   constructor(private dataService: DataService, private router: Router) { }
-
+  
   ngOnInit() {
     this.dataService.getOrderItems(this.order.id).subscribe(item => {
       this.itemsStaged = item.filter(ref => ref.status === 'staged');
       this.itemsSent = item.filter(ref => ref.status === 'sent');
       this.itemsExpo = item.filter(ref => ref.status === 'expo');
     });
+    this.orderId = this.order.id;
+    console.log(this.orderId);
+    
   }
 
   goToOrderDetails(id) {
     this.router.navigate(['parties/' + this.partyId+ '/orders/' + id + '/menu']);
+  }
+
+  updateStatus(itemId, status) {
+    console.log(itemId);
+    
+    
+    // this.dataService.updateItemStatus(orderId, itemId, status);
   }
 }
