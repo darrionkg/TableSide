@@ -35,14 +35,14 @@ h4, h5 {
   box-shadow:          0 0 6px #000000;
 }
 
-#new {
+.new {
   background-color: #fa80726b;
 }
 
-#staged {
+.staged {
   background-color: lightyellow;
 }
 
-#expo {
+.expo {
   background-color: teal;
 }
