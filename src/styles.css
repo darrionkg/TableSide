@@ -8,6 +8,7 @@ body {
   margin: 0;
   width: 100%;
   background-color: #fafafa;
+  font-family: 'Play', sans-serif;
 }
 
 .fb-row {
@@ -31,3 +32,12 @@ body {
 .full {
   height: 100vh;
 }
+
+/* .scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; 
+} */

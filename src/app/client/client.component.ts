@@ -25,8 +25,8 @@ export class ClientComponent implements OnInit, OnDestroy {
         } else {
           return 0;
         }
-      })
-      nav.updateHeading('', `${ref.length}`, '', '');
+      });
+      nav.updateHeading('', `${ref.length}`, 'Table Side', '');
       this.updateWaitTime();
     });
   }

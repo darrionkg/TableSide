@@ -53,10 +53,6 @@ a:hover {
   height: 15%;
 }
 
-.totalCost {
-  margin-top: 0;
-}
-
 .party-seat-button {
   min-width: 20%;
   margin: 0px;
@@ -64,6 +60,9 @@ a:hover {
   text-align: center;
 }
 
+app-status-slider {
+  width: 100%;
+}
 
 .send-button {
   background-color: #03A9F4;
@@ -75,6 +74,13 @@ a:hover {
   background-color: #4CAF50;
   color: white;
   margin: 3px;
+}
+
+.party-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  justify-content: space-evenly;
 }
 
 .test-background {

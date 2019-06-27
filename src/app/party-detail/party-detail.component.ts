@@ -14,7 +14,6 @@ export class PartyDetailComponent implements OnInit {
   seats;
   seatsArray;
   orders: Observable<any>;
-  statusItem = 'test string';
 
   constructor(private router: Router, private route: ActivatedRoute, private dataService: DataService, private nav: NavUpdateService) {}
 
@@ -22,7 +21,7 @@ export class PartyDetailComponent implements OnInit {
     this.partyId = this.route.snapshot.paramMap.get('partyId');
     this.getSeatNum();
     this.getAllOrders();
-    this.nav.updateHeading(this.partyId.slice(0, 3), '', 'Home', '')
+    this.nav.updateHeading(this.partyId.slice(0, 3), '', 'Home', '');
   }
 
   goToMenu() {
@@ -31,7 +30,7 @@ export class PartyDetailComponent implements OnInit {
 
   addSeat() {
     if (this.seats) {
-      this.dataService.addOrder(this.partyId, this.seats.seats, 0);      
+      this.dataService.addOrder(this.partyId, this.seats.seats, 0);
     }
   }
 

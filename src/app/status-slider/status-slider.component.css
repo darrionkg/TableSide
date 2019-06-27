@@ -38,7 +38,6 @@
     flex: 0 0 auto;
     flex-wrap: wrap;
     box-shadow: -1px 0px 3px 0px black;
-    align-items: center;
 }
 
 .scrolling-wrapper {
