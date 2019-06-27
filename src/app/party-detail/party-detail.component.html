@@ -4,12 +4,13 @@
     <div class="order-status-container fb-row">
       <div class =" party-seat-button fb-col">
         <p>Seat {{order.seatId}}</p>
-        <i class="material-icons">filter_list</i>
+        <!-- <i class="material-icons">filter_list</i> -->
+        <div class="slider-container">
+          <app-status-bar [order]='order'></app-status-bar>
+        </div>
+
       </div>
       <app-status-slider [order]='order' [partyId]='partyId'></app-status-slider>
-    </div>
-    <div class="slider-container">
-      <app-status-bar [order]='order'></app-status-bar>
     </div>
   </div>
 </div>
