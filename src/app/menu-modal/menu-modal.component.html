@@ -1,4 +1,5 @@
-<div id="menu-modal" class="modal">
+<div click-stop-propagation id="menu-modal" class="modal" (click)="closeModal()"
+ (swipeleft)="closeModal($event)" (swiperight)="closeModal($event)">
   <div class="modal-content">
       <ul>
           <li *ngFor="let item of modalItem">{{item}}</li>

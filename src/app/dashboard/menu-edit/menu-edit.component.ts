@@ -11,10 +11,10 @@ import { DataService } from 'src/services/data.service';
 export class MenuEditComponent implements DoCheck {
   menuItems: {} = {};
   selectedCategory: string;
-  ingredients: string; 
-  name: string; 
+  ingredients: string;
+  name: string;
   price: number;
-  
+
   constructor(private router: Router, private route: ActivatedRoute, private db: DataService) {
     this.db.getMenuItems().subscribe(ref => {
       this.menuItems = ref;
@@ -30,9 +30,9 @@ export class MenuEditComponent implements DoCheck {
     this.ingredients = '';
     this.name = '';
     this.price = null;
-  }  
+  }
 
   itemDelete(item) {
-    this.db.deleteFromMenu(item.id);   
+    this.db.deleteFromMenu(item.id);
   }
 }

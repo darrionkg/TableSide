@@ -7,11 +7,9 @@
   width: 100%;
 }
 
-
 .status-slider-container div p {
   margin: 5px;
 }
-
 
 .status-slider-staged {
   background-color: #ff09;
@@ -32,11 +30,16 @@
   height: 100%;
 }
 
-.card {
-    flex: 0 0 auto;
+.add-item-button i{
+  padding: 25px;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; /* make scrollbar transparent */
+.status-card {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    box-shadow: -1px 0px 3px 0px black;
+}
+
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
 }

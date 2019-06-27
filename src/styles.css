@@ -1,10 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+/* font-family: 'Corben', cursive; */
+/* font-family: 'Play', sans-serif; */
+
 body {
   margin: 0;
   width: 100%;
-  background-color: #DDDDDD;
+  background-color: #fafafa;
+  font-family: 'Play', sans-serif;
 }
 
 .fb-row {
@@ -26,5 +30,5 @@ body {
 }
 
 .full {
-  height: 100vh;  
+  height: 100vh;
 }

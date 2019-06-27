@@ -10,12 +10,11 @@ export class DashboardComponent {
   categories: {} = {};
   counts = 0;
   menuOpen: boolean;
-  constructor(database: DataService) { 
+  constructor(database: DataService) {
     database.getMenuCatagories().subscribe(ref => {
-      this.categories = ref;      
-    })
-  }  
-  
+      this.categories = ref;
+    });
+  }
   toggleMenu(value) {
     if (value === undefined) {
       this.menuOpen = !this.menuOpen;
@@ -23,9 +22,9 @@ export class DashboardComponent {
       this.menuOpen = value;
     }
     if (this.menuOpen) {
-      document.getElementById("adminSidenav").style.width = "50%";
+      document.getElementById('adminSidenav').style.width = '50%';
     } else {
-      document.getElementById("adminSidenav").style.width = "0";
+      document.getElementById('adminSidenav').style.width = '0';
     }
   }
 

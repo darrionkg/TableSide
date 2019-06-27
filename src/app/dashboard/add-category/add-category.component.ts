@@ -11,7 +11,7 @@ export class AddCategoryComponent implements OnInit {
   categories: {} = {};
   constructor(private database: DataService) {
     database.getMenuCatagories().subscribe(ref => {
-      this.categories = ref;            
+      this.categories = ref;
     })
    }
 
@@ -22,10 +22,10 @@ export class AddCategoryComponent implements OnInit {
     this.database.deleteCategory(name);
   }
 
-  addCategory(name) {    
+  addCategory(name) {
     this.database.addCategory(name);
   }
-  
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.categories['Names'], event.previousIndex, event.currentIndex);
     this.database.updateCategories(this.categories['Names']);

@@ -1,7 +1,7 @@
 <h2>{{selectedCategory | titlecase}}</h2>
 <hr>
 <div *ngIf="menuItems.length > 0">
-    <div *ngFor="let item of menuItems | catFilter:selectedCategory">        
+    <div *ngFor="let item of menuItems | catFilter:selectedCategory">
         <h4>{{item.name}}</h4>
         <h4>{{item.ingredients}}</h4>
         <h4>${{item.price}}</h4>
