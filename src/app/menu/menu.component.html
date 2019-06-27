@@ -1,28 +1,34 @@
 <div class="full" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)">
-<nav class="category-nav">
-  <ul class="box fb-row">
-    <a *ngFor="let cat of categoryArray; let i = index" [ngClass]="selectedCategory === i ? 'activeCat' : ''" (click)="selectCategory(i)">{{cat}}</a>
-  </ul>
-</nav>
+    <nav class="category-nav">
+        <ul class="box fb-row">
+            <a *ngFor="let cat of categoryArray; let i = index" [ngClass]="selectedCategory === i ? 'activeCat' : ''" (click)="selectCategory(i)">{{cat}}</a>
+        </ul>
+    </nav>
 
-<div *ngIf="categoryArray.length > 0" class="box-container menu-container fb-col">
-    <div class="box menu-item fb-col fb-space-between" *ngFor="let item of allItems | catFilter: categoryArray[selectedCategory]">
-      <div class="fb-row">
-        <div class="fb-row fb-space-between wide">
-          <p><span *ngIf="item.ingredients" class="menu-info-trigger"  (click)="showIngredients(item)"><i class="material-icons">info</i></span>{{item.name}}</p>
-          <p class="menu-price">${{item.price}}</p>
+
+    <div class="box-container fb-col menu-container-full" id="ts-menu">
+        <div *ngIf="categoryArray.length > 0">
+            <div class="box menu-item fb-col fb-space-between" *ngFor="let item of allItems | catFilter: categoryArray[selectedCategory]">
+                <div class="fb-row">
+                    <div class="fb-row fb-space-between wide">
+                        <p><span *ngIf="item.ingredients" class="menu-info-trigger" (click)="showIngredients(item)"><i class="material-icons">info</i></span>{{item.name}}</p>
+                        <p class="menu-price">${{item.price}}</p>
+                    </div>
+                    <button mat-button class="item-Button" (click)='stageItem(item)' *ngIf="notMenu"><i class="material-icons">
+              add
+              </i></button>
+                </div>
+            </div>
+            <div class="menu-staged-view fb-row" *ngIf="notMenu">
+                <div class="status-box">
+                    <p class="status-item" *ngFor="let item of stagedArray" (click)="unStageItem(item)">{{item.name}}</p>
+                </div>
+                <button mat-button class="add-staged" (click)="addStagedItems()">Stage Items</button>
+            </div>
         </div>
-        <button mat-button class="item-Button" (click)='stageItem(item)' *ngIf="notMenu"><i class="material-icons">
-            add
-            </i></button>
-      </div>
+
     </div>
-    <div class="menu-staged-view fb-row" *ngIf="notMenu">
-      <div class="status-box">
-        <p class="status-item" *ngFor="let item of stagedArray" (click)="unStageItem(item)">{{item.name}}</p>
-      </div>
-      <button mat-button class="add-staged"(click)="addStagedItems()">Stage Items</button>
-    </div>
-  </div>
-  <app-menu-modal [modalItem]="modalItem"></app-menu-modal>
+
+
+    <app-menu-modal [modalItem]="modalItem"></app-menu-modal>
 </div>

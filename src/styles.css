@@ -1,35 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 /* font-family: 'Corben', cursive; */
+
+
 /* font-family: 'Play', sans-serif; */
 
 body {
-  margin: 0;
-  width: 100%;
-  background-color: #fafafa;
-  font-family: 'Play', sans-serif;
+    margin: 0;
+    width: 100%;
+    background-color: #fafafa;
+    font-family: 'Play', sans-serif;
 }
 
 .fb-row {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .fb-col {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .fb-wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .display-none {
-  display: none;
+    display: none;
 }
 
 .full {
-  height: calc(80vh - 70px);
-  overflow: scroll;
+    height: calc(100vh - 216px);
+    /* overflow: scroll; */
 }

@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   modalItem;
   stagedArray: any[] = [];
   notMenu = true;
-  partyId: string;
+  partyId: string;  
 
   constructor(private db: DataService, private activeRoute: ActivatedRoute, private router: Router, private header: NavUpdateService) {
     this.db.getMenuItems().subscribe(item => this.allItems = item);
@@ -31,6 +31,11 @@ export class MenuComponent implements OnInit {
     } else {
       header.updateHeading('home', '', 'Menu', '');
     }
+  }
+
+  ngOnInit() {
+    this.checkURL();
+    this.assignMenuClass();
   }
 
   // http://localhost:4200/parties/7xgfzI5M0yO7ATPf5Q0k/orders/JbL2CHFZM0HeGeMNZVlh/menu
@@ -68,6 +73,28 @@ export class MenuComponent implements OnInit {
     if (this.router.url === '/menu') {
       this.notMenu = false;
     }
+    
+    // let element = document.getElementById("ts-menu");
+    // console.log(element);
+    
+    // if(this.notMenu) {
+    //   element.classList.remove('menu-container-full');
+    //   element.classList.add('menu-container');
+    // } else {
+    //   element.classList.add('menu-container-full')
+    //   element.classList.remove('menu-container-full');
+    // }
+  }
+
+  assignMenuClass() {
+    let element = document.getElementById("ts-menu");
+    if(this.notMenu) {
+      element.classList.remove('menu-container-full');
+      element.classList.add('menu-container');
+    } else {
+      element.classList.add('menu-container-full')
+      element.classList.remove('menu-container-full');
+    }
   }
 
   returnToParty() {
@@ -75,9 +102,7 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['parties/' + this.partyId]);
   }
 
-  ngOnInit() {
-    this.checkURL();
-  }
+ 
 
   selectCategory(index) {
     this.selectedCategory = index;

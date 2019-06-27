@@ -8,6 +8,16 @@
     margin-right: 20px;
 }
 
+.menu-container {
+    overflow: scroll;
+    height: calc(100vh - 255px);
+}
+
+.menu-container-full {
+    overflow: scroll;
+    height: calc(100vh - 110px);
+}
+
 .menu-item {
     justify-content: right;
     border-bottom: 1px solid gray;
@@ -139,6 +149,8 @@ span i {
     box-shadow: 3px 3px 2px grey;
 }
 
-.full {
-    height: calc(100vh - 216px);
-}
+
+/* .full {
+    height: calc(80vh - 83px);
+    overflow: scroll;
+} */
