@@ -13,8 +13,26 @@
       <app-status-slider [order]='order' [partyId]='partyId'></app-status-slider>
     </div>
   </div>
+  <div class="clear-bottom"></div>
 </div>
 <div class="party-footer fb-row">
-  <button mat-button class="send-button" (click)="sendOrders('sent')">Send Orders</button>
-  <button mat-button class="expo-button" (click)="sendOrders('expo')">Expo Orders</button>
+    <!-- <button mat-button class="expo-button" [matMenuTriggerFor]="aboveMenu">Send Specific</button> -->
+    <button mat-button class="send-button" [matMenuTriggerFor]="aboveMenu">Send Orders</button>
+      <mat-menu #aboveMenu="matMenu" yPosition="above">
+        <button mat-menu-item class="button-pop-up btn-color1" (click)="sendOrdersByCategory('sent', 'drink')">Send Drinks</button>
+        <button mat-menu-item class="button-pop-up btn-color1" (click)="sendOrdersByCategory('sent', 'appetizer')">Send Apps</button>
+        <button mat-menu-item class="button-pop-up btn-color1" (click)="sendOrdersByCategory('sent', 'entree')">Send Entrees</button>
+        <button mat-menu-item class="button-pop-up btn-color1" (click)="sendOrdersByCategory('sent', 'side')">Send Sides</button>
+        <button mat-menu-item class="button-pop-up btn-color1" (click)="sendOrdersByCategory('sent', 'dessert')">Send Desserts</button>
+        <button mat-menu-item class="button-pop-up btn-color1" (click)="sendOrders('sent')">Send All</button>
+      </mat-menu>
+  <button mat-button class="expo-button" [matMenuTriggerFor]="aboveMenu2">Expo Orders</button>
+  <mat-menu #aboveMenu2="matMenu" yPosition="above">
+      <button mat-menu-item class="button-pop-up btn-color2" (click)="sendOrdersByCategory('expo', 'drink')">Expo Drinks</button>
+      <button mat-menu-item class="button-pop-up btn-color2" (click)="sendOrdersByCategory('expo', 'appetizer')">Expo Apps</button>
+      <button mat-menu-item class="button-pop-up btn-color2" (click)="sendOrdersByCategory('expo', 'entree')">Expo Entrees</button>
+        <button mat-menu-item class="button-pop-up btn-color2" (click)="sendOrdersByCategory('expo', 'side')">Expo Sides</button>
+        <button mat-menu-item class="button-pop-up btn-color2" (click)="sendOrdersByCategory('expo', 'dessert')">Expo Desserts</button>
+      <button mat-menu-item class="button-pop-up btn-color2" (click)="sendOrders('expo')">Expo All</button>
+    </mat-menu>
 </div>
