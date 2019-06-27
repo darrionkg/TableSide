@@ -5,16 +5,13 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './menu-modal.component.html',
   styleUrls: ['./menu-modal.component.css']
 })
-export class MenuModalComponent implements OnInit {
+export class MenuModalComponent {
 @Input() modalItem;
   constructor() { }
 
-  closeModal() {
+  closeModal(event) {
     const modal = document.getElementById('menu-modal');
     modal.style.display = 'none';
+    if (event){ event.srcEvent.stopPropagation(); }
   }
-
-  ngOnInit() {
-  }
-
 }
