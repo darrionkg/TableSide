@@ -18,8 +18,8 @@
       </div>
     </div>
     <div class="menu-staged-view fb-row" *ngIf="notMenu">
-      <div>
-        <p *ngFor="let item of stagedArray" (click)="unStageItem(item)">{{item.name}}</p>
+      <div class="status-box">
+        <p class="status-item" *ngFor="let item of stagedArray" (click)="unStageItem(item)">{{item.name}}</p>
       </div>
       <button mat-button class="add-staged"(click)="addStagedItems()">Stage Items</button>
     </div>
