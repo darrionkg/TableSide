@@ -83,5 +83,5 @@ Contact any of the authors via an issue ticket on their forked TableSide repo.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-### Licenense (NOT MIT)
+#### Licensed under MPL
 #### Copyright (c) 2019 Dustin Herboldshimer · Todd Aden · Kerri Walker · Darrion Gering · Mathew Akre
