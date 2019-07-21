@@ -1,6 +1,6 @@
-# <h1 style="text-align: center;">TableSide</h1>
+# <h1 align='center'>TableSide</h1>
 
-> <p style="text-align: center;">Getting to the Point of <em>Point of Sale</em></p>
+> <p align="center">Getting to the Point of <em>Point of Sale</em></p>
 TableSide is a proof-of-concept cloud based POS system designed for use on mobile devices.  This project was designed and built over three days as part of the <a href='https://www.epicodus.com/'>Epicodus</a> Angular module.
 
 TableSide Team:
