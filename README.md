@@ -60,7 +60,7 @@ From the menu, admins may navigate to the menu editor, and create, edit, or dele
 If you would like to explore this project locally:
 
 
-yourLocalDir: $ git clone https://github.com/FluentZap/TableSide.git
+yourLocalDir: $ git clone https://github.com/darrionkg/TableSide.git
 
 tableSide: $ npm install
 
